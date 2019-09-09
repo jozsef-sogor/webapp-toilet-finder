@@ -8,6 +8,11 @@
   <meta name="description" content="Find the nearest public toilet in your area.">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
+  <!-- Google Maps base -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap"
+type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -23,7 +28,7 @@
   <!-- map page -->
   <section id="map" class="page">
 
-<div id="mapContent"></div>
+<div id="map"></div>
 
   </section> <!-- End of map page -->
 
@@ -41,6 +46,8 @@
   <div id="safetyTipsContent"></div>
 
   </section>   <!-- End safetyTips page -->
+
+
 
 
   <!-- main js file -->
