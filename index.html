@@ -12,14 +12,56 @@
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
   <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap"
-type="text/javascript"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
 
 </head>
 
 <body>
+  <!-- loader  -->
+  <div class="preloader-background">
+    <img class="logo"src="img/logo.png" alt="logo">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
 
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
 
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- tabbar navigation -->
@@ -42,15 +84,15 @@ type="text/javascript"></script>
 
     <div id="addToiletContent"></div>
 
-  </section>   <!-- End of addToilet page -->
+  </section> <!-- End of addToilet page -->
 
 
   <!-- safetyTips page -->
   <section id="safetyTips" class="page">
 
-  <div id="safetyTipsContent"></div>
+    <div id="safetyTipsContent"></div>
 
-  </section>   <!-- End safetyTips page -->
+  </section> <!-- End safetyTips page -->
 
 
 
@@ -59,6 +101,7 @@ type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- main js file -->
   <script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </body>
 
 </html>

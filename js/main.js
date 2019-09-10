@@ -1,6 +1,18 @@
 "use strict";
+
 // Materialize auto initilizer
 M.AutoInit();
+
+
+// Loader
+document.addEventListener("DOMContentLoaded", function(){
+	$('.preloader-background').delay(1700).fadeOut('slow');
+
+	$('.preloader-wrapper')
+		.delay(1700)
+		.fadeOut();
+});
+
 //Acessing user location
 var map, infoWindow;
 function initMap() {
@@ -12,9 +24,9 @@ function initMap() {
     styles: mapStyling
   });
     directionsRenderer.setMap(map);
-    
+
   infoWindow = new google.maps.InfoWindow;
-    
+
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
@@ -41,7 +53,7 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-    
+
 }
 
 
