@@ -1,7 +1,91 @@
 "use strict";
 
+// Materialize auto initilizer
+M.AutoInit();
 
-let mapStyling = [
+
+// Loader
+document.addEventListener("DOMContentLoaded", function(){
+	$('.preloader-background').delay(1700).fadeOut('slow');
+
+	$('.preloader-wrapper')
+		.delay(1700)
+		.fadeOut();
+});
+
+
+//Acessing user location
+var map, infoWindow;
+function initMap() {
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer();
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 15,
+    styles: mapStyling
+  });
+    directionsRenderer.setMap(map);
+
+  infoWindow = new google.maps.InfoWindow;
+
+
+  // Try HTML5 geolocation.
+  //Checks if the browser has access tot the user location
+  //if yes it puts the coordinates into (global) variables
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      //Puts a pop-up for testing
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Gotcha...');
+      infoWindow.open(map);
+      map.setCenter(pos);
+//calculateAndDisplayRoute(directionsService, directionsRenderer, pos); Calling the directions function
+
+      //centers the map to the user location
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+}
+
+
+function handleLocationError(browserHasGeolocation, infoWindow) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+
+// Directions function
+function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
+        directionsService.route(
+            {
+              origin: pos ,
+              destination: 'Copenhagen',
+              travelMode: 'WALKING'
+            },
+            function(response, status) {
+              if (status === 'OK') {
+                directionsRenderer.setDirections(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+      }
+
+
+
+var mapStyling = [
   {
     "elementType": "geometry",
     "stylers": [

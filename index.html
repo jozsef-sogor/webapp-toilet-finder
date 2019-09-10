@@ -6,16 +6,64 @@
   <title>Public Privey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Find the nearest public toilet in your area.">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
   <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap"
-type="text/javascript"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
 
 </head>
 
 <body>
+  <!-- loader  -->
+  <div class="preloader-background">
+    <img class="logo"src="img/logo.png" alt="logo">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- tabbar navigation -->
   <nav class="tabbar">
     <a href="#addToilet" onclick="showPage('addToilet')">Add Toilet</a>
@@ -36,16 +84,15 @@ type="text/javascript"></script>
 
     <div id="addToiletContent"></div>
 
-  </section>   <!-- End of addToilet page -->
+  </section> <!-- End of addToilet page -->
 
 
   <!-- safetyTips page -->
   <section id="safetyTips" class="page">
 
-  <div id="safetyTipsContent"></div>
+    <div id="safetyTipsContent"></div>
 
-  </section>   <!-- End safetyTips page -->
-
+  </section> <!-- End safetyTips page -->
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
@@ -53,8 +100,12 @@ type="text/javascript"></script>
   <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
 
 
+  <!-- Materialize Link -->
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- main js file -->
   <script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </body>
 
 </html>
