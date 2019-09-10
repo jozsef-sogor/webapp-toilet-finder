@@ -1,18 +1,6 @@
 "use strict";
 
 
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: lat, lng: lng};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-
-
-
 //Acessing user location
 var map, infoWindow;
 function initMap() {
@@ -31,7 +19,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      
+
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
       infoWindow.setContent('Gotcha...');
