@@ -1,6 +1,6 @@
 "use strict";
-
-
+// Materialize auto initilizer
+M.AutoInit();
 //Acessing user location
 var map, infoWindow;
 function initMap() {
