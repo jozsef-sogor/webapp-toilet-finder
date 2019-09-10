@@ -1,55 +1,7 @@
 "use strict";
 
 
-//Acessing user location
-var map, infoWindow;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 15,
-    styles: mapStyling
-  });
-  infoWindow = new google.maps.InfoWindow;
-
-  // Try HTML5 geolocation.
-  //Checks if the browser has access tot the user location
-  //if yes it puts the coordinates into (global) variables
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      //Puts a pop-up for testing
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Gotcha...');
-      infoWindow.open(map);
-      map.setCenter(pos);
-
-
-      //centers the map to the user location
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
-
-
-var mapStyling = [
+let mapStyling = [
   {
     "elementType": "geometry",
     "stylers": [
@@ -211,13 +163,73 @@ var mapStyling = [
 ]
 
 
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
+    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+    projectId: "public-toilet-finder-4e2f0",
+    storageBucket: "",
+    messagingSenderId: "509217784069",
+    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-Map.setOptions = mapStyling;
 
 
+//Acessing user location
+var map, infoWindow;
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 15,
+    styles: mapStyling
+
+  });
+  infoWindow = new google.maps.InfoWindow;
+  //loading geoJSON data
+   map.data.loadGeoJson('locations.json');
+   map.data.addGeoJson();
+  map.data.setMap(map);
+
+  // Try HTML5 geolocation.
+  //Checks if the browser has access tot the user location
+  //if yes it puts the coordinates into (global) variables
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      //Puts a pop-up for testing
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Gotcha...');
+      infoWindow.open(map);
+      map.setCenter(pos);
 
 
+      //centers the map to the user location
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
 
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
 
 
 
