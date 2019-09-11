@@ -60,6 +60,20 @@ html {
   border-color: #00f4c4;
 }
 
+/* Icon nav styling */
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  display: block;
+  font-size: 24px;
+  height: 1px;
+  line-height: 3px;
+  color: blue;
+}
+
+nav {
+  height: 67px;
+  line-height: 56px;
+}
+
 body {
   margin: 0;
 }
@@ -85,24 +99,29 @@ li {
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
-  background-color: var(--green);
+  background-color: var(--white);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+
 }
 
 /* Style the links inside the navigation bar */
 .tabbar a {
   display: inline-block;
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   text-align: center;
   padding: 20px 16px;
   text-decoration: none;
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  width: 100%;
 }
 
 /* Change the color of links on hover */
@@ -113,8 +132,8 @@ li {
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-  background-color: var(--light-green);
-  color: var(--text-color-light);
+  background-color: var(--light-grey);
+  color: var(--text-color-dark);
 }
 
 /*Adding form styling*/
