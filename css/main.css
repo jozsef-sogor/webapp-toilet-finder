@@ -155,6 +155,55 @@ li {
   margin: 1.5em auto;
 }
 
+
+
+
+/* ----- safety tips css ----- */
+
+#safetyTipsContent {
+display: flex;
+align-items: center;
+flex-flow:  column;
+
+  background-image: url('../img/bckg.jpg');
+-webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  max-width: 1342px;
+  max-height: 2008px;
+  background-size: 100%;
+}
+
+.safetyTipsContentText {
+  width: 70%;
+  text-align: right;
+  margin-left: 20%;
+  /* eventually to see better      background-color: white; ======= */
+}
+
+h2 {
+  color: #1F53FF;
+  font-size: 25px;
+  font-family: 'Proza Libre', sans-serif;
+  text-align: left;
+  width: 60%;
+  padding-top: 60px;
+  margin: 0;
+}
+
+
+
+h3 {
+  color: SlateGrey;
+  font-size: 18px;
+  font-family: 'Proza Libre', sans-serif;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
 /* ---------- page styling ---------- */
 .page {
   display: none;
