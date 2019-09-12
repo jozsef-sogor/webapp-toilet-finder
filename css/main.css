@@ -81,7 +81,7 @@ nav {
 #filters{
   bottom: 67px;
       position: fixed;
-      width: 100%;
+      width: 100% !important;
       height: auto;
       display: flex;
       justify-content: space-around;
@@ -89,6 +89,7 @@ nav {
       background-color: #fff;
       z-index: 1;
       padding-top: .55em;
+
 }
 
 
