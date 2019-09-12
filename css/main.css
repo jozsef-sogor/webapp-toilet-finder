@@ -59,6 +59,9 @@ html {
 .spinner-blue, .spinner-green {
   border-color: #00f4c4;
 }
+header{
+    display: none;
+}
 
 /* Icon nav styling */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {

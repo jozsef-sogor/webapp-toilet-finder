@@ -332,6 +332,13 @@ function showPage(pageId) {
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
+    if (pageId === "addToilet" || pageId === "safetyTips")
+        {
+            document.getElementById("filters").style.visibility = "hidden";
+        }
+    else{
+        document.getElementById("filters").style.visibility = "visible";
+    }
 }
 
 // sets active tabbar/ menu item
