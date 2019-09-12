@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 */
+
+
+$(window).load(function() {      //Do the code in the {}s when the window has loaded
+  $(".preloader-background").fadeOut("fast");
+	$(".preloader-wrapper").fadeOut("fast");  //Fade out the #loader div
+});
+
+
 //Acessing user location
 var map;
 //var infoWindow;
@@ -69,6 +77,7 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 }
 
 // Directions function
+/*
 function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
         directionsService.route(
             {
@@ -86,7 +95,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
       }
 
 
-
+*/
 var mapStyling = [
   {
     "elementType": "geometry",

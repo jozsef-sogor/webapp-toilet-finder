@@ -18,7 +18,7 @@ html {
 }
 
 /* ---------- loader styling ---------- */
-/*.preloader-background {
+.preloader-background {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,7 @@ width: 100vw;
 }
 header{
     display: none;
-}*/
+}
 
 /* Icon nav styling */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
