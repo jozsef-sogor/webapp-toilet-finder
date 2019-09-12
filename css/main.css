@@ -92,6 +92,13 @@ nav {
 }
 
 
+<<<<<<< HEAD
+=======
+#filters img{
+  padding: 10px;
+}
+
+>>>>>>> df87bcc09b4192f77535bc5edb72264564ffff6a
 
 body {
   margin: 0;
@@ -216,6 +223,10 @@ h3 {
   max-width: 300px;
 }
 
+
+.line {
+  width: 20%;
+}
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
