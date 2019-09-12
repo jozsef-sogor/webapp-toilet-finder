@@ -193,29 +193,6 @@ h3 {
   border-radius: 50px;
 }
 
-
-
-/* ---------- topbar styling ---------- */
-.topbar {
-  background-color: var(--green);
-  color: var(--text-color-light);
-  padding: 13.5px;
-  text-transform: uppercase;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-.topbar h2 {
-  margin: 0;
-  font-weight: 300;
-}
-
-
-
-
 /* ---------- page styling ---------- */
 .page {
   display: none;
