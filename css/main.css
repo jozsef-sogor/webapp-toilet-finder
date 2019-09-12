@@ -91,6 +91,12 @@ nav {
       padding-top: .55em;
 }
 
+
+#filters img{
+  padding: 10px;
+}
+
+
 body {
   margin: 0;
 }
