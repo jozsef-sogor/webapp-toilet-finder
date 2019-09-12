@@ -5,6 +5,7 @@ M.AutoInit();
 
 
 // Loader
+/*
 document.addEventListener("DOMContentLoaded", function(){
 	$('.preloader-background').delay(1700).fadeOut('slow');
 
@@ -13,9 +14,10 @@ document.addEventListener("DOMContentLoaded", function(){
 		.fadeOut();
 });
 
-
+*/
 //Acessing user location
-var map, infoWindow;
+var map;
+//var infoWindow;
 function initMap() {
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();

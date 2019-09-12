@@ -18,17 +18,15 @@ html {
 }
 
 /* ---------- loader styling ---------- */
-.preloader-background {
+/*.preloader-background {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   position: fixed;
   z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+height: 100vh;
+width: 100vw;
 }
 
 .preloader-wrapper.big {
@@ -61,7 +59,7 @@ html {
 }
 header{
     display: none;
-}
+}*/
 
 /* Icon nav styling */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -77,10 +75,20 @@ nav {
   line-height: 56px;
 }
 
+
+
 /* Filters Styling */
 #filters{
-  display: flex;
-  justify-content: space-around;
+  bottom: 67px;
+      position: fixed;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: space-around;
+      border-radius: 15px 15px 0 0;
+      background-color: #fff;
+      z-index: 1;
+      padding-top: .55em;
 }
 
 body {
@@ -88,7 +96,7 @@ body {
 }
 
 #map {
-  height: 100%;
+  height: 100vh;
   padding, margin: 0;
 }
 
@@ -102,17 +110,13 @@ li {
   list-style: none;
 }
 
-.removed {
-  display: none;
-}
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
-  background-color: var(--white);
+  background-color: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 9999;
   width: 100%;
   justify-content: space-around;
@@ -144,18 +148,6 @@ li {
   background-color: var(--light-grey);
   color: var(--text-color-dark);
 }
-
-/*Adding form styling*/
-#addNewTeacher>*, #search>* {
-  display: block;
-  max-width: 80vw;
-  min-width: 60vw;
-  padding: 1em;
-  height: auto;
-  margin: 1.5em auto;
-}
-
-
 
 
 /* ----- safety tips css ----- */
