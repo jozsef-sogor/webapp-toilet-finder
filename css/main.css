@@ -102,9 +102,7 @@ li {
   list-style: none;
 }
 
-.removed {
-  display: none;
-}
+
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
@@ -145,15 +143,6 @@ li {
   color: var(--text-color-dark);
 }
 
-/*Adding form styling*/
-#addNewTeacher>*, #search>* {
-  display: block;
-  max-width: 80vw;
-  min-width: 60vw;
-  padding: 1em;
-  height: auto;
-  margin: 1.5em auto;
-}
 
 
 
@@ -204,12 +193,35 @@ h3 {
   border-radius: 50px;
 }
 
+
+
+/* ---------- topbar styling ---------- */
+.topbar {
+  background-color: var(--green);
+  color: var(--text-color-light);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-weight: 300;
+}
+
+
+
+
 /* ---------- page styling ---------- */
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
-  background: var(--light-grey);
+  background: var(--color-light);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;

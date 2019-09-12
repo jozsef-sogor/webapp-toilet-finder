@@ -332,12 +332,12 @@ function showPage(pageId) {
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
-    if (pageId === "addToilet" || pageId === "safetyTips")
+    if (pageId === "map")
         {
-            document.getElementById("filters").style.visibility = "hidden";
+            document.getElementById("filters").style.display = "flex";
         }
     else{
-        document.getElementById("filters").style.visibility = "visible";
+        document.getElementById("filters").style.display = "none";
     }
 }
 
