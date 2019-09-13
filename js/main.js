@@ -259,7 +259,7 @@ var mapStyling = [
 
 
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+ var firebaseConfig = {
     apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
     authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
     databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
@@ -270,6 +270,21 @@ var mapStyling = [
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const bathroomRef = db.collection("bathroom");
+
+function createBathroom(){
+    let nameInput = document.querySelector('#bathroomName');
+   let addressInput = document.querySelector('#bathroomAddress');
+    
+    let newBathroom = {
+        name: nameInput.value,
+        address: addressInput.value
+    };
+    bathroomRef.add(newBathroom);
+    
+}
 
 
 
