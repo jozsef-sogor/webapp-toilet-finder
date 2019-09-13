@@ -273,9 +273,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
-  map.data.loadGeoJson('locations.json');
-  map.data.addGeoJson();
-  map.data.setMap(map);
+  // map.data.loadGeoJson('locations.json');
+  // map.data.addGeoJson();
+  // map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
