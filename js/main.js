@@ -48,7 +48,7 @@ function initMap() {
       lng: 150.644
     },
     zoom: 15,
-		disableDefaultUI: true,
+    disableDefaultUI: true,
     styles: mapStyling
   });
   directionsRenderer.setMap(map);
@@ -240,33 +240,45 @@ var mapStyling = [{
 ]
 
 
-  // Your web app's Firebase configuration
- var firebaseConfig = {
-    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
-    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
-    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
-    projectId: "public-toilet-finder-4e2f0",
-    storageBucket: "",
-    messagingSenderId: "509217784069",
-    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
+  authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+  databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+  projectId: "public-toilet-finder-4e2f0",
+  storageBucket: "",
+  messagingSenderId: "509217784069",
+  appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const bathroomRef = db.collection("bathroom");
+const bathroomRef = db.collection("locations");
+
 
 function createBathroom(){
-    let nameInput = document.querySelector('#bathroomName');
-   let addressInput = document.querySelector('#bathroomAddress');
+   let addressInput = document.querySelector('#address');
+
+
+    let instance = M.FormSelect.getInstance(elem);
+    console.log(instance.getSelectedValues());
+
+
 
     let newBathroom = {
-        name: nameInput.value,
-        address: addressInput.value
+        address: addressInput.value,
+        disabled: instance.getSelectedValues().includes("disabled"),
+        baby: instance.getSelectedValues().includes("baby"),
+        free: instance.getSelectedValues().includes("free")
     };
     bathroomRef.add(newBathroom);
 
+
+
 }
+
+//geocoding, turning coordinates to an address
 
 
 
@@ -284,7 +296,7 @@ function initMap() {
       lng: 150.644
     },
     zoom: 15,
-		disableDefaultUI: true,
+    disableDefaultUI: true,
     styles: mapStyling
 
   });
@@ -303,7 +315,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-        document.getElementById("address").value = pos.lat + ", " + pos.lng;
+
 
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
@@ -311,20 +323,40 @@ function initMap() {
       infoWindow.open(map);
       map.setCenter(pos);
 
+        //geocoding
+
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + pos.lat + "," + pos.lng+ '&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk')
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    // Work with JSON data here
+    console.log(data);
+            document.getElementById("address").value = data.results[0].formatted_address;
+
+  })
+
+
 
       //centers the map to the user location
       map.setCenter(pos);
       //creates a div with a class centerMe and appends it too the map section
-      var div = document.createElement("div");
-      div.setAttribute('class', 'centerMe');
-        div.innerHTML = "Center me";
 
-      document.getElementById("map").appendChild(div);
+      let img = document.createElement("img");
+      img.setAttribute('class', 'centerMe');
+      img.src = 'img/locate.svg';
+      document.querySelector('#map').appendChild(img);
 
-    //Adds an event listener to the div that centers the map to the users location
- document.querySelector(".centerMe").addEventListener('click', function() {
-    map.setCenter(pos);
-  });
+
+// Adds a screen that confirms the user that he/she added a new toilet
+
+
+
+
+      //Adds an event listener to the div that centers the map to the users location
+      document.querySelector(".centerMe").addEventListener('click', function() {
+        map.setCenter(pos);
+      });
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
