@@ -2,7 +2,7 @@
 
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
   authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
   databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
