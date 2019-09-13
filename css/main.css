@@ -89,17 +89,20 @@ nav {
       background-color: #fff;
       z-index: 1;
       padding-top: .55em;
-    
+
 
 }
 
 
 
-#filters img{
+#filters button{
   padding: 10px;
+  opacity: .4;
 }
 
-
+#filters img.active  {
+  opacity: 1;
+}
 
 body {
   margin: 0;
