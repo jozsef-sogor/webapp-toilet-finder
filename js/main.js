@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function(){
 */
 
 
-$(window).load(function() {      //Do the code in the {}s when the window has loaded
+$(window).load(function() { //Do the code in the {}s when the window has loaded
   $(".preloader-background").fadeOut("fast");
-	$(".preloader-wrapper").fadeOut("fast");  //Fade out the #loader div
+  $(".preloader-wrapper").fadeOut("fast"); //Fade out the #loader div
 });
 
 
@@ -30,12 +30,15 @@ function initMap() {
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {
+      lat: -34.397,
+      lng: 150.644
+    },
     zoom: 15,
 		disableDefaultUI: true,
     styles: mapStyling
   });
-    directionsRenderer.setMap(map);
+  directionsRenderer.setMap(map);
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -54,7 +57,7 @@ function initMap() {
       infoWindow.setContent('Gotcha...');
       infoWindow.open(map);
       map.setCenter(pos);
-//calculateAndDisplayRoute(directionsService, directionsRenderer, pos); Calling the directions function
+      //calculateAndDisplayRoute(directionsService, directionsRenderer, pos); Calling the directions function
 
       //centers the map to the user location
       map.setCenter(pos);
@@ -72,8 +75,8 @@ function initMap() {
 function handleLocationError(browserHasGeolocation, infoWindow) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
 
@@ -97,164 +100,127 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
 
 
 */
-var mapStyling = [
-  {
+var mapStyling = [{
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
-    ]
+    "stylers": [{
+      "color": "#f5f5f5"
+    }]
   },
   {
     "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
+    "stylers": [{
+      "visibility": "off"
+    }]
   },
   {
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
+    "stylers": [{
+      "color": "#616161"
+    }]
   },
   {
     "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
-    ]
+    "stylers": [{
+      "color": "#f5f5f5"
+    }]
   },
   {
     "featureType": "administrative.land_parcel",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#bdbdbd"
-      }
-    ]
+    "stylers": [{
+      "color": "#bdbdbd"
+    }]
   },
   {
     "featureType": "poi",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#eeeeee"
-      }
-    ]
+    "stylers": [{
+      "color": "#eeeeee"
+    }]
   },
   {
     "featureType": "poi",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
+    "stylers": [{
+      "color": "#757575"
+    }]
   },
   {
     "featureType": "poi.park",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
-    ]
+    "stylers": [{
+      "color": "#e5e5e5"
+    }]
   },
   {
     "featureType": "poi.park",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
+    "stylers": [{
+      "color": "#9e9e9e"
+    }]
   },
   {
     "featureType": "road",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#ffffff"
-      }
-    ]
+    "stylers": [{
+      "color": "#ffffff"
+    }]
   },
   {
     "featureType": "road.arterial",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
+    "stylers": [{
+      "color": "#757575"
+    }]
   },
   {
     "featureType": "road.highway",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dadada"
-      }
-    ]
+    "stylers": [{
+      "color": "#dadada"
+    }]
   },
   {
     "featureType": "road.highway",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
+    "stylers": [{
+      "color": "#616161"
+    }]
   },
   {
     "featureType": "road.local",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
+    "stylers": [{
+      "color": "#9e9e9e"
+    }]
   },
   {
     "featureType": "transit.line",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
-    ]
+    "stylers": [{
+      "color": "#e5e5e5"
+    }]
   },
   {
     "featureType": "transit.station",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#eeeeee"
-      }
-    ]
+    "stylers": [{
+      "color": "#eeeeee"
+    }]
   },
   {
     "featureType": "water",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#c9c9c9"
-      }
-    ]
+    "stylers": [{
+      "color": "#c9c9c9"
+    }]
   },
   {
     "featureType": "water",
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
+    "stylers": [{
+      "color": "#9e9e9e"
+    }]
   }
 ]
 
@@ -263,10 +229,14 @@ var mapStyling = [
 
 //Acessing user location
 var map, infoWindow;
+
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {
+      lat: -34.397,
+      lng: 150.644
+    },
     zoom: 15,
 		disableDefaultUI: true,
     styles: mapStyling
@@ -274,9 +244,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
-  // map.data.loadGeoJson('locations.json');
-  // map.data.addGeoJson();
-  //map.data.setMap(map);
+  map.data.loadGeoJson('locations.json');
+  map.data.addGeoJson();
+  map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
@@ -310,8 +280,8 @@ function initMap() {
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
 
@@ -332,13 +302,11 @@ function showPage(pageId) {
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
-    if (pageId === "map")
-        {
-            document.getElementById("filters").style.display = "flex";
-        }
-    else{
-        document.getElementById("filters").style.display = "none";
-    }
+  if (pageId === "map") {
+    document.getElementById("filters").style.display = "flex";
+  } else {
+    document.getElementById("filters").style.display = "none";
+  }
 }
 
 // sets active tabbar/ menu item

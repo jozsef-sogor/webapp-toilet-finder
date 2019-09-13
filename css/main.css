@@ -81,7 +81,7 @@ nav {
 #filters{
   bottom: 67px;
       position: fixed;
-      width: 100%;
+      width: 100% !important;
       height: auto;
       display: flex;
       justify-content: space-around;
@@ -89,7 +89,17 @@ nav {
       background-color: #fff;
       z-index: 1;
       padding-top: .55em;
+    
+
 }
+
+
+
+#filters img{
+  padding: 10px;
+}
+
+
 
 body {
   margin: 0;
@@ -228,7 +238,7 @@ body::-webkit-scrollbar-thumb {
 
 h2 {
   color: #1F53FF;
-  font-size: 25px;
+  font-size: 22px;
   font-family: 'Proza Libre', sans-serif;
   text-align: left;
   width: 60%;
@@ -240,7 +250,7 @@ h2 {
 
 h3 {
   color: SlateGrey;
-  font-size: 18px;
+  font-size: 15px;
   font-family: 'Proza Libre', sans-serif;
   padding: 30px;
   background: rgba(255, 255, 255, 0.2);
@@ -265,6 +275,10 @@ h3 {
   max-width: 300px;
 }
 
+
+.line {
+  width: 20%;
+}
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
