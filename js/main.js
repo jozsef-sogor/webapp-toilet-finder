@@ -238,7 +238,8 @@ var mapStyling = [{
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+// add a bathroom
+/*const db = firebase.firestore();
 const bathroomRef = db.collection("bathroom");
 
 function createBathroom(){
@@ -251,7 +252,7 @@ function createBathroom(){
     };
     bathroomRef.add(newBathroom);
 
-}
+}*/
 
 
 
