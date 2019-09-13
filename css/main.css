@@ -115,7 +115,9 @@ nav {
 
 }
 
-
+form{
+  margin-top: 6rem;
+}
 
 #filters button{
   padding: 10px;
@@ -193,9 +195,15 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     border-bottom: 1px solid #0000ff;
 }
 [type="checkbox"]:checked+span:not(.lever):before {
-    
+
     border-right: 2px solid #0000ff;
     border-bottom: 2px solid #0000ff;
+}
+
+
+.input-field>label{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
 }
 /* add toilet button styling */
 
@@ -205,7 +213,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 
 .waves-effect{
-  margin-top: 25vh;
+  margin-top: 20vh;
 }
 
 
