@@ -300,6 +300,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+        document.getElementById("address").value = pos.lat + ", " + pos.lng;
 
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
