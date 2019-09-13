@@ -75,7 +75,29 @@ nav {
   line-height: 56px;
 }
 
+/* Center me button styling */
 
+.centerMe{
+  background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    cursor: pointer;
+    margin-bottom: 22px;
+    text-align: center;
+    color: rgb(25,25,25);
+    line-height: 38px;
+    padding-left: 5px;
+    padding-right: 5px;
+    z-index: 99;
+    position: fixed;
+    width: 100px;
+    height: auto;
+    right: 5px;
+    bottom: 29vh;
+
+
+}
 
 /* Filters Styling */
 #filters{
@@ -90,16 +112,21 @@ nav {
       z-index: 1;
       padding-top: .55em;
 
+
 }
 
+form{
+  margin-top: 6rem;
+}
 
-<<<<<<< HEAD
-=======
-#filters img{
+#filters button{
   padding: 10px;
+  opacity: .4;
 }
 
->>>>>>> df87bcc09b4192f77535bc5edb72264564ffff6a
+#filters img.active  {
+  opacity: 1;
+}
 
 body {
   margin: 0;
@@ -114,11 +141,81 @@ h1 {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: 3px;
+  font-family: 'Proza Libre', sans-serif;
 }
 
 li {
   list-style: none;
 }
+
+a{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* add toilet input field styling */
+.input-field{
+  margin: 1rem;
+  padding: 1rem;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #0000ff;
+  -webkit-box-shadow: 0 1px 0 0 #0000ff;
+          box-shadow: 0 1px 0 0 #0000ff;
+}
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #0000ff;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 1px solid #0000ff;
+}
+[type="checkbox"]:checked+span:not(.lever):before {
+
+    border-right: 2px solid #0000ff;
+    border-bottom: 2px solid #0000ff;
+}
+
+
+.input-field>label{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+/* add toilet button styling */
+
+.btn, .btn-large, .btn-small{
+  background: linear-gradient(90deg, rgba(61,0,203,1) 38%, rgba(0,134,255,1) 79%, rgba(0,159,255,1) 100%);
+}
+
+
+.waves-effect{
+  margin-top: 20vh;
+}
+
 
 
 /* ---------- tabbar styling ---------- */
@@ -161,7 +258,7 @@ li {
 
 
 /* ----- safety tips css ----- */
-
+/*
 #safetyTipsContent {
 display: flex;
 align-items: center;
@@ -183,6 +280,57 @@ flex-flow:  column;
   text-align: right;
   margin-left: 20%;
   /* eventually to see better      background-color: white; ======= */
+/*}
+*/
+
+#safetyTips {
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 10px;
+  background-color: #f1f1f4;
+
+}
+
+#safetyTipsContent li  {
+  text-align: right;
+  padding: 1.5em;
+  font-size: 1.3em;
+}
+
+
+
+#safetyTipsContent{
+  width: 60%;
+  float: right;
+}
+
+#safetyTipsContent:first-child{
+  text-align: left;
+  font-weight: 400;
+}
+
+#bottomBackground {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  z-index: -1;
+  width: 40%;
+}
+
+#topBackground {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  width: 60%;
 }
 
 h2 {

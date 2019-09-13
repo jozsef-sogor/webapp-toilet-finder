@@ -8,16 +8,15 @@
   <title>Public Privy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Find the nearest public toilet in your area.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Proza+Libre&display=swap" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
 
-<link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
 
 </head>
 
@@ -86,36 +85,59 @@
   </nav>
 
 
-    <!-- filters nav -->
-    <section id="filters">
+  <!-- filters nav -->
+  <section id="filters">
 
-        <a href="#"><img src="img/disabled.svg" alt="disabled icon"></a>
-        <a href="#"><img src="img/baby.svg" alt="baby icon"></a>
-        <a href="#"><img src="img/free.svg" alt=""></a>
-    </section>
+    <button><img src="img/disabled.svg" alt="disabled icon"></button>
+    <button><img src="img/baby.svg" alt="baby icon"></button>
+    <button><img src="img/free.svg" alt="free icon"></button>
+  </section>
 
   <!-- pages -->
 
   <!-- map page -->
   <section id="map" class="page">
 
+
   </section> <!-- End of map page -->
 
   <!-- addToilet page -->
   <section id="addToilet" class="page">
+<h1>Add New Toilet</h1>
+<img id="bottomBackground" src="img/background1.svg" alt=".">
+<img src="img/background2.svg" alt="." id="topBackground">
 
-    <div id="addToiletContent"></div>
+  <form class="col s12">
+    <div>
+  <div class="input-field col s6">
+  <input id="address" type="text" >
+  <label for="address">Address</label>
+</div>
 
+</div>
+<div>
+    <div class="input-field col s12 m6">
+      <select multiple class="icons">
+        <option value="" data-icon="img/disabled.svg">Disabled</option>
+        <option value="" data-icon="img/baby.svg">Baby Room</option>
+        <option value="" data-icon="img/free.svg">Free</option>
+      </select>
+      <label>Please Select Toilet Type</label>
+    </div>
+</div>
+</form>
+<a class="waves-effect waves-light btn-large">ADD PLACE</a>
   </section> <!-- End of addToilet page -->
 
 
 
-    <!-- safetyTips page -->
-    <section id="safetyTips" class="page">
+  <!-- safetyTips page -->
+  <section id="safetyTips" class="page">
 
-      <div id="safetyTipsContent">
-
-    <h2> <b> SAFETY TIPS </b><br><small>
+    <ul id="safetyTipsContent">
+      <img id="bottomBackground" src="img/background1.svg" alt=".">
+      <img src="img/background2.svg" alt="." id="topBackground">
+      <!--     <h2> <b> SAFETY TIPS </b><br><small>
     and etiquette
     of the public toilets</small>
     </h2>
@@ -150,14 +172,14 @@
 
 
     </h3>
-    </div>
+  </div> -->
 
 
 
 
-      </div>
+    </ul>
 
-    </section> <!-- End safetyTips page -->
+  </section> <!-- End safetyTips page -->
 
 
 
@@ -175,6 +197,9 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <script src="js/main.js"></script>
+  <!-- Google Maps base -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+  <script src="js/locations.js"></script>
 </body>
 
 </html>
