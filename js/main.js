@@ -39,7 +39,7 @@ var map;
 
 //var infoWindow;
 function initMap() {
-    
+
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
@@ -54,7 +54,7 @@ function initMap() {
   directionsRenderer.setMap(map);
 
   infoWindow = new google.maps.InfoWindow;
-   
+
 
 
   // Try HTML5 geolocation.
@@ -78,12 +78,12 @@ function initMap() {
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
-      
+
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-    
+
 }
 
 
@@ -310,13 +310,13 @@ function initMap() {
 
       //centers the map to the user location
       map.setCenter(pos);
-      //creates a div with a class centerMe and appends it too the map section 
+      //creates a div with a class centerMe and appends it too the map section
       var div = document.createElement("div");
       div.setAttribute('class', 'centerMe');
         div.innerHTML = "Center me";
 
       document.getElementById("map").appendChild(div);
-        
+
     //Adds an event listener to the div that centers the map to the users location
  document.querySelector(".centerMe").addEventListener('click', function() {
     map.setCenter(pos);
@@ -390,4 +390,3 @@ setDefaultPage();
 
 
 //Center button
-
