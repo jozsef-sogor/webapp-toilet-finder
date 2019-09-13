@@ -115,16 +115,16 @@
 </div>
 <div>
     <div class="input-field col s12 m6">
-      <select multiple class="icons">
-        <option value="" data-icon="img/disabled.svg">Disabled</option>
-        <option value="" data-icon="img/baby.svg">Baby Room</option>
-        <option value="" data-icon="img/free.svg">Free</option>
+      <select multiple class="icons" id="elem">
+        <option  id="disabledOption" value="disabled" data-icon="img/disabled.svg">Disabled</option>
+        <option id="babyOption" value="baby" data-icon="img/baby.svg">Baby Room</option>
+        <option id="freeOption" value="free" data-icon="img/free.svg">Free</option>
       </select>
       <label>Please Select Toilet Type</label>
     </div>
 </div>
 </form>
-<a class="waves-effect waves-light btn-large">ADD PLACE</a>
+<a class="waves-effect waves-light btn-large" onclick="createBathroom()">ADD PLACE</a>
   </section> <!-- End of addToilet page -->
 
 

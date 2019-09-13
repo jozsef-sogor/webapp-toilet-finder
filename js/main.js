@@ -254,19 +254,29 @@ var mapStyling = [{
   firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const bathroomRef = db.collection("bathroom");
+const bathroomRef = db.collection("locations");
 
 function createBathroom(){
-    let nameInput = document.querySelector('#bathroomName');
-   let addressInput = document.querySelector('#bathroomAddress');
+   let addressInput = document.querySelector('#address');
+    
+    
+    let instance = M.FormSelect.getInstance(elem);
+    console.log(instance.getSelectedValues());
 
+    
+    
     let newBathroom = {
-        name: nameInput.value,
-        address: addressInput.value
+        address: addressInput.value,
+        disabled: instance.getSelectedValues().includes("disabled"),
+        baby: instance.getSelectedValues().includes("baby"),
+        free: instance.getSelectedValues().includes("free")
     };
     bathroomRef.add(newBathroom);
 
+
 }
+
+//geocoding, turning coordinates to an address
 
 
 
@@ -300,13 +310,27 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-        document.getElementById("address").value = pos.lat + ", " + pos.lng;
+        
 
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
       infoWindow.setContent('Gotcha...');
       infoWindow.open(map);
       map.setCenter(pos);
+        
+        //geocoding
+        
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + pos.lat + "," + pos.lng+ '&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk')
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    // Work with JSON data here
+    console.log(data);
+            document.getElementById("address").value = data.results[0].formatted_address;
+            
+  })
+    
 
 
       //centers the map to the user location
