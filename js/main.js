@@ -225,18 +225,18 @@ var mapStyling = [{
 ]
 
 
-  // Your web app's Firebase configuration
- var firebaseConfig = {
-    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
-    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
-    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
-    projectId: "public-toilet-finder-4e2f0",
-    storageBucket: "",
-    messagingSenderId: "509217784069",
-    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+ //  // Your web app's Firebase configuration
+ // var firebaseConfig = {
+ //    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
+ //    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+ //    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+ //    projectId: "public-toilet-finder-4e2f0",
+ //    storageBucket: "",
+ //    messagingSenderId: "509217784069",
+ //    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+ //  };
+ //  // Initialize Firebase
+ //  firebase.initializeApp(firebaseConfig);
 
 // add a bathroom
 /*const db = firebase.firestore();
