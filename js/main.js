@@ -23,6 +23,16 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 });
 
 
+//  Initializing the filter selection on the ADD Toilet Page
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('select');
+//   var instances = M.FormSelect.init(elems, options);
+// });
+
+
+
+
 //Acessing user location
 var map;
 //var infoWindow;
@@ -225,21 +235,20 @@ var mapStyling = [{
 ]
 
 
- //  // Your web app's Firebase configuration
- // var firebaseConfig = {
- //    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
- //    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
- //    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
- //    projectId: "public-toilet-finder-4e2f0",
- //    storageBucket: "",
- //    messagingSenderId: "509217784069",
- //    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
- //  };
- //  // Initialize Firebase
- //  firebase.initializeApp(firebaseConfig);
+  // Your web app's Firebase configuration
+ var firebaseConfig = {
+    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
+    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+    projectId: "public-toilet-finder-4e2f0",
+    storageBucket: "",
+    messagingSenderId: "509217784069",
+    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-// add a bathroom
-/*const db = firebase.firestore();
+const db = firebase.firestore();
 const bathroomRef = db.collection("bathroom");
 
 function createBathroom(){
@@ -252,7 +261,7 @@ function createBathroom(){
     };
     bathroomRef.add(newBathroom);
 
-}*/
+}
 
 
 
@@ -273,9 +282,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
-  // map.data.loadGeoJson('locations.json');
-  // map.data.addGeoJson();
-  // map.data.setMap(map);
+  map.data.loadGeoJson('locations.json');
+  map.data.addGeoJson();
+  map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location

@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-<link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
 
 </head>
 
@@ -84,13 +84,13 @@
   </nav>
 
 
-    <!-- filters nav -->
-    <section id="filters">
+  <!-- filters nav -->
+  <section id="filters">
 
-        <button><img src="img/disabled.svg" alt="disabled icon"></button>
-        <button><img src="img/baby.svg" alt="baby icon"></button>
-        <button><img src="img/free.svg" alt="free icon"></button>
-    </section>
+    <button><img src="img/disabled.svg" alt="disabled icon"></button>
+    <button><img src="img/baby.svg" alt="baby icon"></button>
+    <button><img src="img/free.svg" alt="free icon"></button>
+  </section>
 
   <!-- pages -->
 
@@ -101,38 +101,39 @@
 
   <!-- addToilet page -->
   <section id="addToilet" class="page">
+<h1>Add New Toilet</h1>
 
-    <div id="addToiletContent">
-    <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="bathroomName" type="text" class="validate">
-        <label for="bathroomName">Name of the Bathroom</label>
-        </div>
-      </div>
+<div>
+  <form class="col s12">
+  <div class="input-field col s6">
+  <input id="last_name" type="text" class="validate">
+  <label for="last_name">Last Name</label>
+</div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="bathroomAddress" type="text" class="validate">
-          <label for="bathroomAddress">Address</label>
-        </div>
-      </div>
-      <button onclick="createBathroom()">Add</button>
-    </form>
-  </div></div>
-
+</div>
+<div>
+    <div class="input-field col s12 m6">
+      <select multiple class="icons">
+        <option value="" data-icon="img/disabled.svg">Disabled</option>
+        <option value="" data-icon="img/baby.svg">Baby Room</option>
+        <option value="" data-icon="img/free.svg">Free</option>
+      </select>
+      <label>Please Select Toilet Type</label>
+    </div>
+</div>
+</form>
+<a class="waves-effect waves-light btn-large">ADD PLACE</a>
   </section> <!-- End of addToilet page -->
 
 
 
-    <!-- safetyTips page -->
-    <section id="safetyTips" class="page">
+  <!-- safetyTips page -->
+  <section id="safetyTips" class="page">
 
-      <ul id="safetyTipsContent">
-<img id="bottomBackground" src="img/background1.svg" alt=".">
-<img src="img/background2.svg" alt="." id="topBackground">
-    <!--     <h2> <b> SAFETY TIPS </b><br><small>
+    <ul id="safetyTipsContent">
+      <img id="bottomBackground" src="img/background1.svg" alt=".">
+      <img src="img/background2.svg" alt="." id="topBackground">
+      <!--     <h2> <b> SAFETY TIPS </b><br><small>
     and etiquette
     of the public toilets</small>
     </h2>
@@ -168,9 +169,9 @@
 
 
 
-</ul>
+    </ul>
 
-    </section> <!-- End safetyTips page -->
+  </section> <!-- End safetyTips page -->
 
 
 
@@ -190,7 +191,7 @@
   <script src="js/main.js"></script>
   <!-- Google Maps base -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
-<script src="js/locations.js"></script>
+  <script src="js/locations.js"></script>
 </body>
 
 </html>
