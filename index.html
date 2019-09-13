@@ -12,8 +12,6 @@
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
 
 </head>
 
@@ -100,7 +98,13 @@
   <!-- addToilet page -->
   <section id="addToilet" class="page">
 
-    <div id="addToiletContent"></div>
+    <div id="addToiletContent">
+      <div class="input-field">
+  <input placeholder="Location" id="location" type="text">
+  <label for="location">Location</label>
+</div>
+
+    </div>
 
   </section> <!-- End of addToilet page -->
 
@@ -109,9 +113,10 @@
     <!-- safetyTips page -->
     <section id="safetyTips" class="page">
 
-      <div id="safetyTipsContent">
-
-    <h2> <b> SAFETY TIPS </b><br><small>
+      <ul id="safetyTipsContent">
+<img id="bottomBackground" src="img/background1.svg" alt=".">
+<img src="img/background2.svg" alt="." id="topBackground">
+    <!--     <h2> <b> SAFETY TIPS </b><br><small>
     and etiquette
     of the public toilets</small>
     </h2>
@@ -120,7 +125,7 @@
 
 
 
-          <h3>
+     <h3>
             <span>&#8467;</span><br>
     <b>Don’t put your things in the restroom floor.</b><br>
     Hang it on the hook.<br><br>
@@ -137,12 +142,12 @@
     dryers collect more bacteria.<br><br>
 
     </h3>
-    </div>
+  </div> -->
 
 
 
 
-      </div>
+</ul>
 
     </section> <!-- End safetyTips page -->
 
@@ -162,6 +167,9 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <script src="js/main.js"></script>
+  <!-- Google Maps base -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+<script src="js/locations.js"></script>
 </body>
 
 </html>
