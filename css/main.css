@@ -228,7 +228,11 @@ h3 {
 .line {
   width: 30%;
 }
-/* ---------- animations ---------- */
+
+/* animation
+
+
+
 /* fade in */
 @keyframes fadeIn {
   from {

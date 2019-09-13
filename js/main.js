@@ -273,6 +273,9 @@ var mapStyling = [
 
 
 
+
+
+
 //Acessing user location
 var map, infoWindow;
 function initMap() {
