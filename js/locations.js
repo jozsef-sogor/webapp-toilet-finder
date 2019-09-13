@@ -26,7 +26,7 @@ locationRef.onSnapshot(function(snapshotData) {
   appendLocations(locations);
 });
 
-tipsRef.onSnapshot(function(snapshotData){
+tipsRef.onSnapshot(function(snapshotData) {
   let posts = snapshotData.docs;
   appendTips(posts);
 });
@@ -35,14 +35,14 @@ tipsRef.onSnapshot(function(snapshotData){
 //SafetyTips page
 
 function appendTips(posts) {
-let htmlTemplate = "";
+  let htmlTemplate = "";
   for (let post of posts) {
     console.log(post);
     htmlTemplate += `
       <li>${post.data().post}</li>
     `;
-      }
-    document.querySelector("#safetyTipsContent").innerHTML += htmlTemplate;
+  }
+  document.querySelector("#safetyTipsContent").innerHTML += htmlTemplate;
 
 
 }
@@ -52,20 +52,33 @@ function appendLocations(locations) {
 
   for (let location of locations) {
     console.log(location.id);
-  //  console.log(location.data().location);
-    var latitude = location.data().lat;
+    //  console.log(location.data().location);
+    let latitude = location.data().lat;
     console.log(latitude);
-    var longtitude = location.data().lng;
+
+    let longtitude = location.data().lng;
     console.log(longtitude);
 
-    var myLatLng = {lat: latitude, lng: longtitude};
-console.log(myLatLng);
+    let baby = location.data().baby;
+    let disabled = location.data().disabled;
+    let free = location.data().free;
 
-new google.maps.Marker({
- position: myLatLng,
- map: map
-});
+    let myLatLng = {
+      lat: latitude,
+      lng: longtitude
+    };
 
+    console.log(myLatLng);
+    var newMarker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      baby: baby,
+      disabled: disabled,
+      free: free
+    });
+
+    markers.push(newMarker);
+    console.log(markers);
   };
 
 
