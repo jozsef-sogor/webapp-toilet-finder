@@ -103,12 +103,24 @@
   <section id="addToilet" class="page">
 
     <div id="addToiletContent">
-      <div class="input-field">
-  <input placeholder="Location" id="location" type="text">
-  <label for="location">Location</label>
-</div>
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="bathroomName" type="text" class="validate">
+        <label for="bathroomName">Name of the Bathroom</label>
+        </div>
+      </div>
 
-    </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="bathroomAddress" type="text" class="validate">
+          <label for="bathroomAddress">Address</label>
+        </div>
+      </div>
+      <button onclick="createBathroom()">Add</button>
+    </form>
+  </div></div>
 
   </section> <!-- End of addToilet page -->
 
