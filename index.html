@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 
+<!--  https://console.firebase.google.com/u/0/project/safety-tips-4e9c9/overview -->
+
 <head>
   <meta charset="utf-8">
   <title>Public Privy</title>
@@ -12,8 +14,8 @@
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
 
 </head>
 
@@ -87,7 +89,7 @@
 
         <a href="#"><img src="img/disabled.svg" alt="disabled icon"></a>
         <a href="#"><img src="img/baby.svg" alt="baby icon"></a>
-        <a href="#"><img src="img/free.svg" alt=""></a>
+        <a href="#"><img src="img/free.svg" alt="free icon"></a>
     </section>
 
   <!-- pages -->
@@ -100,7 +102,7 @@
   <!-- addToilet page -->
   <section id="addToilet" class="page">
 
-    <div id="addToiletContent"> 
+    <div id="addToiletContent">
     <div class="row">
     <form class="col s12">
       <div class="row">
@@ -127,9 +129,10 @@
     <!-- safetyTips page -->
     <section id="safetyTips" class="page">
 
-      <div id="safetyTipsContent">
-
-    <h2> <b> SAFETY TIPS </b><br><small>
+      <ul id="safetyTipsContent">
+<img id="bottomBackground" src="img/background1.svg" alt=".">
+<img src="img/background2.svg" alt="." id="topBackground">
+    <!--     <h2> <b> SAFETY TIPS </b><br><small>
     and etiquette
     of the public toilets</small>
     </h2>
@@ -139,28 +142,33 @@
 
 
           <h3>
-            <span>&#8467;</span><br>
+
     <b>Don’t put your things in the restroom floor.</b><br>
-    Hang it on the hook.<br><br>
-    <span>&#8467;</span><br>
+    Hang it on the hook.<br>
+    <img src="img/line.png" class="line"><br><br>
+
     <b>Dave own protector</b> <br>
-    and put it on the toilet. <br><br>
-    <span>&#8467;</span><br>
-    <b>Use toilet paper on a flush.</b> <br><br>
-    <span>&#8467;</span><br>
+    and put it on the toilet. <br>
+  <img src="img/line.png" class="line"><br><br>
+
+    <b>Use toilet paper on a flush.</b> <br>
+    <img src="img/line.png" class="line"><br><br>
+
     <b>Wash your hands in hot water </b><br>
-    (around 60 degrees).<br><br>
-    <span>&#8467;</span><br>
+    (around 60 degrees).<br>
+<img src="img/line.png" class="line"><br><br>
+
     <b>Dry your hands with paper towel, </b>
-    dryers collect more bacteria.<br><br>
+    dryers collect more bacteria.<br><br><br>
+
 
     </h3>
-    </div>
+  </div> -->
 
 
 
 
-      </div>
+</ul>
 
     </section> <!-- End safetyTips page -->
 
@@ -180,6 +188,9 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <script src="js/main.js"></script>
+  <!-- Google Maps base -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+<script src="js/locations.js"></script>
 </body>
 
 </html>
