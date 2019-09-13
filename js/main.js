@@ -280,6 +280,9 @@ function createBathroom(){
 
 
 
+
+
+
 //Acessing user location
 var map, infoWindow;
 
