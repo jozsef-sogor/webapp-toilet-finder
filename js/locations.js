@@ -18,7 +18,7 @@ const db = firebase.firestore();
 const locationRef = db.collection("locations");
 const tipsRef = db.collection("posts");
 
-
+let markers = [];
 
 
 locationRef.onSnapshot(function(snapshotData) {
