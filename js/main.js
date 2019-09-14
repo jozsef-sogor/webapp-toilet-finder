@@ -27,6 +27,7 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 
 
 
+
 // To open a modal using a trigger
 // document.addEventListener('DOMContentLoaded', function() {
 //   var elems = document.querySelectorAll('.modal');
@@ -523,7 +524,7 @@ function appendTips(posts) {
 
 }
 
-// append users to the DOM
+// append locations to the DOM
 function appendLocations(locations) {
 
   for (let location of locations) {
