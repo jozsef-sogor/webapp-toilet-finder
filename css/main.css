@@ -25,8 +25,8 @@ html {
   background-color: white;
   position: fixed;
   z-index: 100;
-height: 100vh;
-width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 .preloader-wrapper.big {
@@ -57,8 +57,9 @@ width: 100vw;
 .spinner-blue, .spinner-green {
   border-color: #00f4c4;
 }
-header{
-    display: none;
+
+header {
+  display: none;
 }
 
 /* Icon nav styling */
@@ -76,54 +77,52 @@ nav {
 }
 
 /* Center me button styling */
-
-.centerMe{
+.centerMe {
   background-color: #fff;
-      border: 2px solid #fff;
-      border-radius: 100%;
-      box-shadow: 0 2px 6px rgba(0,0,0,.3);
-      cursor: pointer;
-      margin-bottom: 22px;
-      text-align: center;
-      color: rgb(25,25,25);
-      line-height: 38px;
-      padding-left: 5px;
-      padding-right: 5px;
-      z-index: 99;
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      right: 5px;
-      bottom: 30vh;
-  }
+  border: 2px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  margin-bottom: 22px;
+  text-align: center;
+  color: rgb(25, 25, 25);
+  line-height: 38px;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 99;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 5px;
+  bottom: 30vh;
+}
 
 /* Filters Styling */
-#filters{
+#filters {
   bottom: 67px;
-      position: fixed;
-      width: 100% !important;
-      height: auto;
-      display: flex;
-      justify-content: space-around;
-      border-radius: 15px 15px 0 0;
-      background-color: #fff;
-      z-index: 1;
-      padding-top: .55em;
-
-
+  position: fixed;
+  width: 100% !important;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 15px 15px 0 0;
+  background-color: #fff;
+  z-index: 1;
+  padding: 1.55em;
 }
 
-form{
-  margin-top: 6rem;
+.disabledImg{
+opacity: .4;
 }
-
-#filters button{
-  padding: 10px;
+.babyImg{
+  opacity: .4;
+}
+.freeImg{
   opacity: .4;
 }
 
-#filters img.active  {
-  opacity: 1;
+form {
+  margin-top: 6rem;
 }
 
 body {
@@ -146,12 +145,12 @@ li {
   list-style: none;
 }
 
-a{
+a {
   font-family: 'Montserrat', sans-serif;
 }
 
 /* add toilet input field styling */
-.input-field{
+.input-field {
   margin: 1rem;
   padding: 1rem;
 }
@@ -171,56 +170,52 @@ input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #0000ff;
   -webkit-box-shadow: 0 1px 0 0 #0000ff;
-          box-shadow: 0 1px 0 0 #0000ff;
+  box-shadow: 0 1px 0 0 #0000ff;
 }
-input:not([type]):focus:not([readonly]) + label,
-input[type=text]:not(.browser-default):focus:not([readonly]) + label,
-input[type=password]:not(.browser-default):focus:not([readonly]) + label,
-input[type=email]:not(.browser-default):focus:not([readonly]) + label,
-input[type=url]:not(.browser-default):focus:not([readonly]) + label,
-input[type=time]:not(.browser-default):focus:not([readonly]) + label,
-input[type=date]:not(.browser-default):focus:not([readonly]) + label,
-input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
-input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
-input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
-input[type=number]:not(.browser-default):focus:not([readonly]) + label,
-input[type=search]:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
   color: #0000ff;
 }
 
 .select-wrapper input.select-dropdown:focus {
-    border-bottom: 1px solid #0000ff;
+  border-bottom: 1px solid #0000ff;
 }
+
 [type="checkbox"]:checked+span:not(.lever):before {
-
-    border-right: 2px solid #0000ff;
-    border-bottom: 2px solid #0000ff;
+  border-right: 2px solid #0000ff;
+  border-bottom: 2px solid #0000ff;
 }
 
-
-.input-field>label{
+.input-field>label {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
 }
+
 /* add toilet button styling */
-
-.btn, .btn-large, .btn-small{
-  background: linear-gradient(90deg, rgba(61,0,203,1) 38%, rgba(0,134,255,1) 79%, rgba(0,159,255,1) 100%);
-
+.btn, .btn-large, .btn-small {
+  background: linear-gradient(90deg, rgba(61, 0, 203, 1) 38%, rgba(0, 134, 255, 1) 79%, rgba(0, 159, 255, 1) 100%);
 }
 
-.modal .modal-footer{
+.modal .modal-footer {
   text-align: center;
   padding: 0px;
 }
 
-
-#waves-effect{
+#waves-effect {
   margin-top: 20vh;
 }
-
-
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
@@ -232,7 +227,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   width: 100%;
   justify-content: space-around;
   display: flex;
-
 }
 
 /* Style the links inside the navigation bar */
@@ -260,40 +254,32 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   color: var(--text-color-dark);
 }
 
-
 /* safety tips paper holder background */
-
-
 #safetyTips {
   overflow: auto;
 }
 
 body::-webkit-scrollbar {
   width: 0;
-
 }
 
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   width: 10px;
   background-color: #f1f1f4;
-
 }
 
-
 /* SAFETY TIPS paper holder */
-
 .holder {
   margin-left: 25px;
-  z-index = -10;
+  z-index=-10;
   margin-top: 15px;
 }
 
-
 .top {
-  width:74%;
-  height:200px;
-  background:#fff;
+  width: 74%;
+  height: 200px;
+  background: #fff;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -305,35 +291,33 @@ body::-webkit-scrollbar-thumb {
 
 .top h2 {
   text-align: center;
-	position: relative;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-	top:40px;
+  top: 40px;
   padding: 10px;
   font-family: 'Proza Libre', sans-serif;
   font-size: 16px;
   color: grey;
-/*  color: #d4d7dd; */
+  /*  color: #d4d7dd; */
   z-index: 10;
 }
 
-
 .top h3 {
   text-align: center;
-	position: relative;
-	top:10px;
+  position: relative;
+  top: 10px;
   padding-top: 20px;
   font-family: 'Proza Libre', sans-serif;
   font-size: 18px;
-   color: #1f53ff;
+  color: #1f53ff;
   margin-left: 60px;
 }
 
 .box h3 {
-
-	position: absolute;
-    padding-top: 20px;
-    margin-top: 20px;
+  position: absolute;
+  padding-top: 20px;
+  margin-top: 20px;
   padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -343,41 +327,39 @@ body::-webkit-scrollbar-thumb {
 }
 
 h4 {
-    padding-top: 0px;
+  padding-top: 0px;
   text-align: center;
-	position: relative;
+  position: relative;
   font-family: 'Proza Libre', sans-serif;
   font-size: 17px;
   color: #bdbdbd;
   letter-spacing: 2px;
 }
 
-
 .box {
-	width:74%;
-	height:235px;
-	background:#fff;
+  width: 74%;
+  height: 235px;
+  background: #fff;
   margin-left: 16%;
   position: absolute;
   top: 5px;
   position: absolute;
   background-color: #f0f8ff;
-
 }
-#tip1{
-    margin-top: -21px;
-    margin-bottom: 50px;
+
+#tip1 {
+  margin-top: -21px;
+  margin-bottom: 50px;
 }
 
 /*==================================================
  * Effect - shadow on the bottom
  * ===============================================*/
-.effect3
-{
+.effect3 {
   position: relative;
 }
-.effect3:before
-{
+
+.effect3:before {
   z-index: -1;
   position: absolute;
   content: "";
@@ -385,7 +367,7 @@ h4 {
   left: 10px;
   width: 50%;
   top: 80%;
-  max-width:300px;
+  max-width: 300px;
   background: #777;
   -webkit-box-shadow: 0 15px 10px #777;
   -moz-box-shadow: 0 15px 10px #777;
@@ -397,13 +379,10 @@ h4 {
   transform: rotate(-3deg);
 }
 
-
 /* taping icon animation */
-
-.tap
-{
+.tap {
   position: relative;
-  margin-left:-5px;
+  margin-left: -5px;
   margin-top: -15px;
   width: 10%;
   height: 10%;
@@ -419,23 +398,22 @@ h4 {
   0%, 20%, 50%, 80%, 100% {
     transform: scale(1.0);
   }
+
   40% {
     transform: scale(1.2);
   }
+
   60% {
     transform: scale(1.4);
   }
 }
 
-#tip2, #tip3, #tip4, #tip5{
-    height: 0px;
-    visibility: hidden;
-    transition: all 2s ease;
-    overflow: hidden;
+#tip2, #tip3, #tip4, #tip5 {
+  height: 0px;
+  visibility: hidden;
+  transition: all 2s ease;
+  overflow: hidden;
 }
-
-
-
 
 #bottomBackground {
   position: fixed;
@@ -463,8 +441,6 @@ h2 {
   margin: 0;
 }
 
-
-
 h3 {
   color: SlateGrey;
   font-size: 15px;
@@ -474,7 +450,7 @@ h3 {
   border-radius: 50px;
 }
 
-p{
+p {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -488,7 +464,6 @@ p{
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;
 }
-
 
 /* fade in */
 @keyframes fadeIn {
