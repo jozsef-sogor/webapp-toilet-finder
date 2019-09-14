@@ -23,6 +23,14 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 });
 
 
+
+// To open a modal using a trigger
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('.modal');
+//   var instances = M.Modal.init(elems, options);
+// });
+
+
 //  Initializing the filter selection on the ADD Toilet Page
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -257,22 +265,43 @@ const db = firebase.firestore();
 const bathroomRef = db.collection("locations");
 
 
-function createBathroom(){
-   let addressInput = document.querySelector('#address');
-
-
-    let instance = M.FormSelect.getInstance(elem);
-    console.log(instance.getSelectedValues());
+function createBathroom() {
+  let addressInput = document.querySelector('#address');
 
 
 
-    let newBathroom = {
-        address: addressInput.value,
-        disabled: instance.getSelectedValues().includes("disabled"),
-        baby: instance.getSelectedValues().includes("baby"),
-        free: instance.getSelectedValues().includes("free")
-    };
-    bathroomRef.add(newBathroom);
+
+
+
+
+
+  // let addNewMarker = new google.maps.LatLng (pos);
+  // function addMarker (location){
+  //   let marker = new google.maps.Marker({
+  //     position: location,
+  //     map: map,
+  //   });
+  // }
+
+
+
+
+
+
+
+
+  let instance = M.FormSelect.getInstance(elem);
+  console.log(instance.getSelectedValues());
+
+
+
+  let newBathroom = {
+    address: addressInput.value,
+    disabled: instance.getSelectedValues().includes("disabled"),
+    baby: instance.getSelectedValues().includes("baby"),
+    free: instance.getSelectedValues().includes("free")
+  };
+  bathroomRef.add(newBathroom);
 
 
 
@@ -287,7 +316,7 @@ function createBathroom(){
 
 //Acessing user location
 var map, infoWindow;
-
+var pos;
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -311,7 +340,7 @@ function initMap() {
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
@@ -323,18 +352,28 @@ function initMap() {
       infoWindow.open(map);
       map.setCenter(pos);
 
-        //geocoding
+      //geocoding
 
-        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + pos.lat + "," + pos.lng+ '&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk')
-  .then(response => {
-    return response.json()
-  })
-  .then(data => {
-    // Work with JSON data here
-    console.log(data);
-            document.getElementById("address").value = data.results[0].formatted_address;
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.lat},${pos.lng}&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk`)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          // Work with JSON data here
+          console.log(data);
+          document.getElementById("address").value = data.results[0].formatted_address;
 
-  })
+        })
+
+//  Add New Marker
+
+
+
+
+
+
+
+
 
 
 
@@ -348,7 +387,7 @@ function initMap() {
       document.querySelector('#map').appendChild(img);
 
 
-// Adds a screen that confirms the user that he/she added a new toilet
+      // Adds a screen that confirms the user that he/she added a new toilet
 
 
 

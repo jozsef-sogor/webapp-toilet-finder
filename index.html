@@ -126,7 +126,19 @@
     </div>
 </div>
 </form>
-<a class="waves-effect waves-light btn-large" onclick="createBathroom()">ADD PLACE</a>
+
+<!-- Modal Trigger -->
+  <button data-target="modal1" class="btn modal-trigger" onclick="createBathroom()">ADD PLACE</button>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <p>Thank you for helping to improve our app.<br>
+New place added succesfully!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#map!" onclick="showPage('map')" class="modal-close waves-effect waves-light btn">GO TO MAP</a>
+    </div>
+  </div>
   </section> <!-- End of addToilet page -->
 
 
