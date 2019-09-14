@@ -600,3 +600,27 @@ searchArray = [
   }
 }
 };
+
+
+
+document.getElementById("tip1").addEventListener('click', function(){
+    
+     document.getElementById("tip2").style.visibility = "visible";
+    document.getElementById("tip2").style.height = "235px";
+});
+
+document.getElementById("tip2").addEventListener('click', function(){
+    
+     document.getElementById("tip3").style.visibility = "visible";
+    document.getElementById("tip3").style.height = "235px";
+});
+document.getElementById("tip3").addEventListener('click', function(){
+    
+     document.getElementById("tip4").style.visibility = "visible";
+    document.getElementById("tip4").style.height = "235px";
+});
+document.getElementById("tip4").addEventListener('click', function(){
+    
+     document.getElementById("tip5").style.visibility = "visible";
+    document.getElementById("tip5").style.height = "235px";
+});
