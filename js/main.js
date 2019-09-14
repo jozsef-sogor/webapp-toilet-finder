@@ -4,6 +4,7 @@
 M.AutoInit();
 
 
+
 // Loader
 /*
 document.addEventListener("DOMContentLoaded", function(){
@@ -46,7 +47,6 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 //Acessing user location
 var map;
 
-
 //var infoWindow;
 function initMap() {
 
@@ -76,6 +76,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+        
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
       infoWindow.setContent('Gotcha...');
@@ -95,7 +96,7 @@ function initMap() {
   }
 
 }
-
+console.log(pos);
 
 function handleLocationError(browserHasGeolocation, infoWindow) {
   infoWindow.setPosition(pos);
@@ -269,10 +270,31 @@ const bathroomRef = db.collection("locations");
 
 function createBathroom() {
   let addressInput = document.querySelector('#address');
+        navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+        
+ let instance = M.FormSelect.getInstance(elem);
+  console.log(instance.getSelectedValues());
 
 
 
+  let newBathroom = {
+    lat: pos.lat,
+    lng: pos.lng,
+    disabled: instance.getSelectedValues().includes("disabled"),
+    baby: instance.getSelectedValues().includes("baby"),
+    free: instance.getSelectedValues().includes("free")
+  };
+  bathroomRef.add(newBathroom);
+    })
 
+
+
+  
+    
 
 
 
@@ -284,28 +306,6 @@ function createBathroom() {
   //     map: map,
   //   });
   // }
-
-
-
-
-
-
-
-
-  let instance = M.FormSelect.getInstance(elem);
-  console.log(instance.getSelectedValues());
-
-
-
-  let newBathroom = {
-    address: addressInput.value,
-    disabled: instance.getSelectedValues().includes("disabled"),
-    baby: instance.getSelectedValues().includes("baby"),
-    free: instance.getSelectedValues().includes("free")
-  };
-  bathroomRef.add(newBathroom);
-
-
 
 }
 
@@ -319,7 +319,7 @@ function createBathroom() {
 //Acessing user location
 var map, infoWindow;
 var pos;
-function initMap() {
+function initMap(pos) {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -465,6 +465,6 @@ function setDefaultPage() {
 
 setDefaultPage();
 
-
+console.log(pos);
 
 //Center button
