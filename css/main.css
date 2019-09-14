@@ -292,7 +292,7 @@ body::-webkit-scrollbar-thumb {
 
 .top {
   width:74%;
-  height:140px;
+  height:200px;
   background:#fff;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -330,10 +330,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box h3 {
-  text-align: center;
+
 	position: absolute;
-	top: 75px;
-  padding: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+  padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Proza Libre', sans-serif;
@@ -342,10 +343,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 h4 {
+    padding-top: 0px;
   text-align: center;
-	position: absolute;
-	top:42px;
-  margin-left: 35px;
+	position: relative;
   font-family: 'Proza Libre', sans-serif;
   font-size: 17px;
   color: #bdbdbd;
@@ -355,17 +355,19 @@ h4 {
 
 .box {
 	width:74%;
-	height:290px;
+	height:235px;
 	background:#fff;
   margin-left: 16%;
   position: absolute;
   top: 5px;
-  margin-top: -40px;
   position: absolute;
   background-color: #f0f8ff;
 
 }
-
+#tip1{
+    margin-top: -21px;
+    margin-bottom: 50px;
+}
 
 /*==================================================
  * Effect - shadow on the bottom
@@ -405,7 +407,7 @@ h4 {
   margin-top: -15px;
   width: 10%;
   height: 10%;
-  top: 230px;
+  top: 150px;
   opacity: 0.6;
 }
 
@@ -425,6 +427,12 @@ h4 {
   }
 }
 
+#tip2, #tip3, #tip4, #tip5{
+    height: 0px;
+    visibility: hidden;
+    transition: all 2s ease;
+    overflow: hidden;
+}
 
 
 

@@ -255,13 +255,13 @@ var mapStyling = [{
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
-  authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
-  databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
-  projectId: "public-toilet-finder-4e2f0",
-  storageBucket: "",
-  messagingSenderId: "509217784069",
-  appId: "1:509217784069:web:3a19197f49947c53f7f76c"
-};
+   authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+   databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+   projectId: "public-toilet-finder-4e2f0",
+   storageBucket: "",
+   messagingSenderId: "509217784069",
+   appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+ };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -624,3 +624,27 @@ function filtering() {
     }
   }
 };
+
+
+
+document.getElementById("tip1").addEventListener('click', function(){
+
+     document.getElementById("tip2").style.visibility = "visible";
+    document.getElementById("tip2").style.height = "235px";
+});
+
+document.getElementById("tip2").addEventListener('click', function(){
+
+     document.getElementById("tip3").style.visibility = "visible";
+    document.getElementById("tip3").style.height = "235px";
+});
+document.getElementById("tip3").addEventListener('click', function(){
+
+     document.getElementById("tip4").style.visibility = "visible";
+    document.getElementById("tip4").style.height = "235px";
+});
+document.getElementById("tip4").addEventListener('click', function(){
+
+     document.getElementById("tip5").style.visibility = "visible";
+    document.getElementById("tip5").style.height = "235px";
+});
