@@ -573,19 +573,20 @@ function appendLocations(locations) {
       document.querySelector("#filters").innerHTML = htmlTemplate;
     //  document.querySelector("body").addClass(".modalOpen")
 
+    function closeFilterModal(){
+
+      document.querySelector("#filters").innerHTML = `
+      <button><img src="img/disabled.svg" alt="disabled icon"></button>
+      <button><img src="img/baby.svg" alt="baby icon"></button>
+      <button><img src="img/free.svg" alt="free icon"></button>
+      `;
+    };
 
       console.log(selectedPosition);
     });
   };
 
-function closeFilterModal(){
 
-  document.querySelector("#filters").innerHTML = `
-  <button><img src="img/disabled.svg" alt="disabled icon"></button>
-  <button><img src="img/baby.svg" alt="baby icon"></button>
-  <button><img src="img/free.svg" alt="free icon"></button>
-  `;
-};
 
 
 
