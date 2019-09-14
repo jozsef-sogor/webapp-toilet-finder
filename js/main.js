@@ -4,6 +4,7 @@
 M.AutoInit();
 
 
+
 // Loader
 /*
 document.addEventListener("DOMContentLoaded", function(){
@@ -26,6 +27,7 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 
 
 
+
 // To open a modal using a trigger
 // document.addEventListener('DOMContentLoaded', function() {
 //   var elems = document.querySelectorAll('.modal');
@@ -45,7 +47,6 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 
 //Acessing user location
 var map;
-
 
 //var infoWindow;
 function initMap() {
@@ -76,6 +77,7 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
       infoWindow.setContent('Gotcha...');
@@ -95,7 +97,7 @@ function initMap() {
   }
 
 }
-
+console.log(pos);
 
 function handleLocationError(browserHasGeolocation, infoWindow) {
   infoWindow.setPosition(pos);
@@ -269,6 +271,28 @@ const bathroomRef = db.collection("locations");
 
 function createBathroom() {
   let addressInput = document.querySelector('#address');
+        navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+ let instance = M.FormSelect.getInstance(elem);
+  console.log(instance.getSelectedValues());
+
+
+
+  let newBathroom = {
+    lat: pos.lat,
+    lng: pos.lng,
+    disabled: instance.getSelectedValues().includes("disabled"),
+    baby: instance.getSelectedValues().includes("baby"),
+    free: instance.getSelectedValues().includes("free"),
+      address: document.getElementById("address").value
+  };
+  bathroomRef.add(newBathroom);
+    })
+
 
 
 
@@ -285,28 +309,6 @@ function createBathroom() {
   //   });
   // }
 
-
-
-
-
-
-
-
-  let instance = M.FormSelect.getInstance(elem);
-  console.log(instance.getSelectedValues());
-
-
-
-  let newBathroom = {
-    address: addressInput.value,
-    disabled: instance.getSelectedValues().includes("disabled"),
-    baby: instance.getSelectedValues().includes("baby"),
-    free: instance.getSelectedValues().includes("free")
-  };
-  bathroomRef.add(newBathroom);
-
-
-
 }
 
 //geocoding, turning coordinates to an address
@@ -319,6 +321,7 @@ function createBathroom() {
 //Acessing user location
 var map, infoWindow;
 var pos;
+
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -333,9 +336,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
-  map.data.loadGeoJson('locations.json');
-  map.data.addGeoJson();
-  map.data.setMap(map);
+  // map.data.loadGeoJson('locations.json');
+  // map.data.addGeoJson();
+  // map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
@@ -367,9 +370,7 @@ function initMap() {
 
         })
 
-//  Add New Marker
-
-
+      //  Add New Marker
 
 
 
@@ -465,6 +466,136 @@ function setDefaultPage() {
 
 setDefaultPage();
 
-
+console.log(pos);
 
 //Center button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Your web app's Firebase configuration
+
+const locationRef = db.collection("locations");
+const tipsRef = db.collection("posts");
+
+let markers = [];
+
+
+locationRef.onSnapshot(function(snapshotData) {
+  let locations = snapshotData.docs;
+  appendLocations(locations);
+});
+
+tipsRef.onSnapshot(function(snapshotData) {
+  let posts = snapshotData.docs;
+  appendTips(posts);
+});
+
+
+//SafetyTips page
+
+function appendTips(posts) {
+  let htmlTemplate = "";
+  for (let post of posts) {
+    console.log(post);
+    htmlTemplate += `
+      <li>${post.data().post}</li>
+    `;
+  }
+  // document.querySelector("#safetyTipsContent").innerHTML += htmlTemplate;
+
+
+}
+
+// append locations to the DOM
+function appendLocations(locations) {
+
+  for (let location of locations) {
+    console.log(location.id);
+    //  console.log(location.data().location);
+    let latitude = location.data().lat;
+    console.log(latitude);
+
+    let longtitude = location.data().lng;
+    console.log(longtitude);
+
+    let baby = location.data().baby;
+    let disabled = location.data().disabled;
+    let free = location.data().free;
+
+    let myLatLng = {
+      lat: latitude,
+      lng: longtitude
+    };
+
+    console.log(myLatLng);
+    var newMarker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      baby: baby,
+      disabled: disabled,
+      free: free
+    });
+
+    markers.push(newMarker);
+    console.log(markers);
+    newMarker.addListener('click', function() {
+      let selectedPosition = this.position.toString();
+      console.log(selectedPosition);
+     });
+  };
+
+
+
+}
+
+console.log(markers);
+
+let criteria = {
+  baby: true,
+  disabled: false,
+  free: true
+}
+
+
+
+
+
+
+
+let searchArray = [];
+
+function filtering() {
+for (let searched of markers) {
+
+searchArray = [
+  searched.baby,
+  searched.disabled,
+  searched.free
+]
+
+  if (searchArray.toString() == Object.values(criteria).toString()){
+    console.log("true");
+  }
+  else {
+    console.log("false");
+  }
+}
+};
