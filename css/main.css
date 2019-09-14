@@ -261,37 +261,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 
-/* ----- safety tips css ----- */
-/*
-#safetyTipsContent {
-display: flex;
-align-items: center;
-flex-flow:  column;
-
-  background-image: url('../img/bckg.jpg');
--webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  max-width: 1342px;
-  max-height: 2008px;
-  background-size: 100%;
-}
-
-.safetyTipsContentText {
-  width: 70%;
-  text-align: right;
-  margin-left: 20%;
-  /* eventually to see better      background-color: white; ======= */
-/*}
-*/
-
-
 /* safety tips paper holder background */
-
-
-
 
 
 #safetyTips {
@@ -322,7 +292,7 @@ body::-webkit-scrollbar-thumb {
 
 .top {
   width:74%;
-  height:140px;
+  height:200px;
   background:#fff;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -360,10 +330,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box h3 {
-  text-align: center;
+
 	position: absolute;
-	top: 75px;
-  padding: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+  padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Proza Libre', sans-serif;
@@ -371,25 +342,10 @@ body::-webkit-scrollbar-thumb {
   color: #33313b;
 }
 
-/*
-.boxtext {
-  width:80%;
-  height:270px;
-  margin:0px auto;
-  margin-top: -30px;
-  position: absolute;
-   overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-*/
-
-
-
 h4 {
+    padding-top: 0px;
   text-align: center;
-	position: absolute;
-	top:42px;
-  margin-left: 35px;
+	position: relative;
   font-family: 'Proza Libre', sans-serif;
   font-size: 17px;
   color: #bdbdbd;
@@ -399,17 +355,19 @@ h4 {
 
 .box {
 	width:74%;
-	height:290px;
+	height:235px;
 	background:#fff;
   margin-left: 16%;
   position: absolute;
   top: 5px;
-  margin-top: -40px;
   position: absolute;
   background-color: #f0f8ff;
 
 }
-
+#tip1{
+    margin-top: -21px;
+    margin-bottom: 50px;
+}
 
 /*==================================================
  * Effect - shadow on the bottom
@@ -439,7 +397,8 @@ h4 {
   transform: rotate(-3deg);
 }
 
-/* arrow */
+
+/* taping icon animation */
 
 .tap
 {
@@ -448,7 +407,7 @@ h4 {
   margin-top: -15px;
   width: 10%;
   height: 10%;
-  top: 230px;
+  top: 150px;
   opacity: 0.6;
 }
 
@@ -468,29 +427,13 @@ h4 {
   }
 }
 
+#tip2, #tip3, #tip4, #tip5{
+    height: 0px;
+    visibility: hidden;
+    transition: all 2s ease;
+    overflow: hidden;
+}
 
-
-
-
-/*
-#safetyTipsContent li  {
-  text-align: right;
-  padding: 1.5em;
-  font-size: 1.3em;
-} */
-
-
-/*
-#safetyTipsContent{
-  width: 60%;
-  float: right;
-} */
-
-/*
-#safetyTipsContent:first-child{
-  text-align: left;
-  font-weight: 400;
-} */
 
 
 
@@ -544,20 +487,6 @@ p{
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;
-}
-
-
-
-/* ---------- logo styling ---------- */
-.logo {
-  margin: 2em auto;
-  width: 100%;
-  max-width: 300px;
-}
-
-
-.line {
-  width: 30%;
 }
 
 

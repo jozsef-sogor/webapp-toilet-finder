@@ -252,16 +252,16 @@ var mapStyling = [{
 ]
 
 
-//Your web app's Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
-  authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
-  databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
-  projectId: "public-toilet-finder-4e2f0",
-  storageBucket: "",
-  messagingSenderId: "509217784069",
-  appId: "1:509217784069:web:3a19197f49947c53f7f76c"
-};
+   authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+   databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+   projectId: "public-toilet-finder-4e2f0",
+   storageBucket: "",
+   messagingSenderId: "509217784069",
+   appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+ };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -271,27 +271,27 @@ const bathroomRef = db.collection("locations");
 
 function createBathroom() {
   let addressInput = document.querySelector('#address');
-        navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
 
- let instance = M.FormSelect.getInstance(elem);
-  console.log(instance.getSelectedValues());
+    let instance = M.FormSelect.getInstance(elem);
+    console.log(instance.getSelectedValues());
 
 
 
-  let newBathroom = {
-    lat: pos.lat,
-    lng: pos.lng,
-    disabled: instance.getSelectedValues().includes("disabled"),
-    baby: instance.getSelectedValues().includes("baby"),
-    free: instance.getSelectedValues().includes("free"),
+    let newBathroom = {
+      lat: pos.lat,
+      lng: pos.lng,
+      disabled: instance.getSelectedValues().includes("disabled"),
+      baby: instance.getSelectedValues().includes("baby"),
+      free: instance.getSelectedValues().includes("free"),
       address: document.getElementById("address").value
-  };
-  bathroomRef.add(newBathroom);
-    })
+    };
+    bathroomRef.add(newBathroom);
+  })
 
 
 
@@ -353,7 +353,7 @@ function initMap() {
 
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Gotcha...');
+      infoWindow.setContent('It was Ignas...');
       infoWindow.open(map);
       map.setCenter(pos);
 
@@ -478,18 +478,6 @@ console.log(pos);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Your web app's Firebase configuration
 
 const locationRef = db.collection("locations");
@@ -539,6 +527,7 @@ function appendLocations(locations) {
     let baby = location.data().baby;
     let disabled = location.data().disabled;
     let free = location.data().free;
+    let address = location.data().address;
 
     let myLatLng = {
       lat: latitude,
@@ -548,6 +537,7 @@ function appendLocations(locations) {
     console.log(myLatLng);
     var newMarker = new google.maps.Marker({
       position: myLatLng,
+      address: address,
       map: map,
       baby: baby,
       disabled: disabled,
@@ -556,11 +546,47 @@ function appendLocations(locations) {
 
     markers.push(newMarker);
     console.log(markers);
+    //Listens if a pin is clicked
     newMarker.addListener('click', function() {
       let selectedPosition = this.position.toString();
+      let selectedAddress = this.address.toString();
+      let selectedBaby = this.baby;
+      let selectedDisabled = this.disabled;
+      let selectedFree = this.free;
+
+      console.log(selectedAddress);
+
+      let htmlTemplate = `
+      <div class="filterModal">
+      <a class="btn-floating btn-large waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
+          <p>${selectedAddress}</p>
+          <ul>
+          <li>${selectedBaby}</li>
+          <li>${selectedDisabled}</li>
+          <li>${selectedFree}</li>
+          </ul>
+
+          <button class="modal-close waves-effect waves-light btn" onclick="navigate()">Navigate</button>
+          </div>
+      `;
+
+      document.querySelector("#filters").innerHTML = htmlTemplate;
+    //  document.querySelector("body").addClass(".modalOpen")
+
+
       console.log(selectedPosition);
-     });
+    });
   };
+
+function closeFilterModal(){
+
+  document.querySelector("#filters").innerHTML = `
+  <button><img src="img/disabled.svg" alt="disabled icon"></button>
+  <button><img src="img/baby.svg" alt="baby icon"></button>
+  <button><img src="img/free.svg" alt="free icon"></button>
+  `;
+};
+
 
 
 
@@ -583,19 +609,42 @@ let criteria = {
 let searchArray = [];
 
 function filtering() {
-for (let searched of markers) {
+  for (let searched of markers) {
 
-searchArray = [
-  searched.baby,
-  searched.disabled,
-  searched.free
-]
+    searchArray = [
+      searched.baby,
+      searched.disabled,
+      searched.free
+    ]
 
-  if (searchArray.toString() == Object.values(criteria).toString()){
-    console.log("true");
+    if (searchArray.toString() == Object.values(criteria).toString()) {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
   }
-  else {
-    console.log("false");
-  }
-}
 };
+
+
+
+document.getElementById("tip1").addEventListener('click', function(){
+
+     document.getElementById("tip2").style.visibility = "visible";
+    document.getElementById("tip2").style.height = "235px";
+});
+
+document.getElementById("tip2").addEventListener('click', function(){
+
+     document.getElementById("tip3").style.visibility = "visible";
+    document.getElementById("tip3").style.height = "235px";
+});
+document.getElementById("tip3").addEventListener('click', function(){
+
+     document.getElementById("tip4").style.visibility = "visible";
+    document.getElementById("tip4").style.height = "235px";
+});
+document.getElementById("tip4").addEventListener('click', function(){
+
+     document.getElementById("tip5").style.visibility = "visible";
+    document.getElementById("tip5").style.height = "235px";
+});
