@@ -271,27 +271,27 @@ const bathroomRef = db.collection("locations");
 
 function createBathroom() {
   let addressInput = document.querySelector('#address');
-        navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
 
- let instance = M.FormSelect.getInstance(elem);
-  console.log(instance.getSelectedValues());
+    let instance = M.FormSelect.getInstance(elem);
+    console.log(instance.getSelectedValues());
 
 
 
-  let newBathroom = {
-    lat: pos.lat,
-    lng: pos.lng,
-    disabled: instance.getSelectedValues().includes("disabled"),
-    baby: instance.getSelectedValues().includes("baby"),
-    free: instance.getSelectedValues().includes("free"),
+    let newBathroom = {
+      lat: pos.lat,
+      lng: pos.lng,
+      disabled: instance.getSelectedValues().includes("disabled"),
+      baby: instance.getSelectedValues().includes("baby"),
+      free: instance.getSelectedValues().includes("free"),
       address: document.getElementById("address").value
-  };
-  bathroomRef.add(newBathroom);
-    })
+    };
+    bathroomRef.add(newBathroom);
+  })
 
 
 
@@ -478,18 +478,6 @@ console.log(pos);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Your web app's Firebase configuration
 
 const locationRef = db.collection("locations");
@@ -536,6 +524,8 @@ function appendLocations(locations) {
     let longtitude = location.data().lng;
     console.log(longtitude);
 
+    let address = location.data().address;
+
     let baby = location.data().baby;
     let disabled = location.data().disabled;
     let free = location.data().free;
@@ -548,6 +538,7 @@ function appendLocations(locations) {
     console.log(myLatLng);
     var newMarker = new google.maps.Marker({
       position: myLatLng,
+      address: address,
       map: map,
       baby: baby,
       disabled: disabled,
@@ -556,10 +547,17 @@ function appendLocations(locations) {
 
     markers.push(newMarker);
     console.log(markers);
+
+    //Listens for clicks on pins
     newMarker.addListener('click', function() {
+      //Getting the properties from the clicked pin
       let selectedPosition = this.position.toString();
-      console.log(selectedPosition);
-     });
+      let selectedAddress = this.address.toString();
+      let selectedBaby = this.baby.toString();
+      let selectedDisabled = this.disabled.toString();
+      let selectedFree = this.free.toString();
+      console.log(selectedBaby);
+    });
   };
 
 
@@ -583,19 +581,18 @@ let criteria = {
 let searchArray = [];
 
 function filtering() {
-for (let searched of markers) {
+  for (let searched of markers) {
 
-searchArray = [
-  searched.baby,
-  searched.disabled,
-  searched.free
-]
+    searchArray = [
+      searched.baby,
+      searched.disabled,
+      searched.free
+    ]
 
-  if (searchArray.toString() == Object.values(criteria).toString()){
-    console.log("true");
+    if (searchArray.toString() == Object.values(criteria).toString()) {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
   }
-  else {
-    console.log("false");
-  }
-}
 };
