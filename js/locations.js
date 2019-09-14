@@ -79,7 +79,46 @@ function appendLocations(locations) {
 
     markers.push(newMarker);
     console.log(markers);
+    newMarker.addListener('click', function() {
+      let selectedPosition = this.position.toString();
+      console.log(selectedPosition);
+     });
   };
 
 
+
 }
+
+console.log(markers);
+
+let criteria = {
+  baby: true,
+  disabled: false,
+  free: true
+}
+
+
+
+
+
+
+
+let searchArray = [];
+
+function filtering() {
+for (let searched of markers) {
+
+searchArray = [
+  searched.baby,
+  searched.disabled,
+  searched.free
+]
+
+  if (searchArray.toString() == Object.values(criteria).toString()){
+    console.log("true");
+  }
+  else {
+    console.log("false");
+  }
+}
+};

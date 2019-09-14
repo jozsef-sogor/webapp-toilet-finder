@@ -85,11 +85,18 @@
 
 
     <!-- filters nav -->
-    <section id="filters">
+    <section id="filters" onchange="filter()">
 
         <button><img src="img/disabled.svg" alt="disabled icon"></button>
         <button><img src="img/baby.svg" alt="baby icon"></button>
         <button><img src="img/free.svg" alt="free icon"></button>
+<!--
+<select class="filters" name="filters">
+  <option id="disabled" [ngValue]="true"><img src="img/disabled.svg" alt="disabled icon"></option>
+  <option id="baby" [ngValue]="true"><img src="img/baby.svg" alt="baby icon"></option>
+  <option id="free" [ngValue]="true"><img src="img/free.svg" alt="free icon"></option>
+</select>-->
+
     </section>
 
   <!-- pages -->
