@@ -286,7 +286,8 @@ function createBathroom() {
     lng: pos.lng,
     disabled: instance.getSelectedValues().includes("disabled"),
     baby: instance.getSelectedValues().includes("baby"),
-    free: instance.getSelectedValues().includes("free")
+    free: instance.getSelectedValues().includes("free"),
+      address: document.getElementById("address").value
   };
   bathroomRef.add(newBathroom);
     })
