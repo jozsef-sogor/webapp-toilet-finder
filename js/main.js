@@ -17,16 +17,39 @@ document.addEventListener("DOMContentLoaded", function(){
 */
 
 
+
+
 $(window).load(function() { //Do the code in the {}s when the window has loaded
   $(".preloader-background").fadeOut("fast");
   $(".preloader-wrapper").fadeOut("fast"); //Fade out the #loader div
 });
 
 
+
+// To open a modal using a trigger
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('.modal');
+//   var instances = M.Modal.init(elems, options);
+// });
+
+
+//  Initializing the filter selection on the ADD Toilet Page
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('select');
+//   var instances = M.FormSelect.init(elems, options);
+// });
+
+
+
+
 //Acessing user location
 var map;
+
+
 //var infoWindow;
 function initMap() {
+
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
@@ -35,12 +58,13 @@ function initMap() {
       lng: 150.644
     },
     zoom: 15,
-		disableDefaultUI: true,
+    disableDefaultUI: true,
     styles: mapStyling
   });
   directionsRenderer.setMap(map);
 
   infoWindow = new google.maps.InfoWindow;
+
 
 
   // Try HTML5 geolocation.
@@ -64,6 +88,7 @@ function initMap() {
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
+
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
@@ -225,40 +250,75 @@ var mapStyling = [{
 ]
 
 
- //  // Your web app's Firebase configuration
- // var firebaseConfig = {
- //    apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
- //    authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
- //    databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
- //    projectId: "public-toilet-finder-4e2f0",
- //    storageBucket: "",
- //    messagingSenderId: "509217784069",
- //    appId: "1:509217784069:web:3a19197f49947c53f7f76c"
- //  };
- //  // Initialize Firebase
- //  firebase.initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
+  authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+  databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+  projectId: "public-toilet-finder-4e2f0",
+  storageBucket: "",
+  messagingSenderId: "509217784069",
+  appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-// add a bathroom
-/*const db = firebase.firestore();
-const bathroomRef = db.collection("bathroom");
+const db = firebase.firestore();
+const bathroomRef = db.collection("locations");
 
-function createBathroom(){
-    let nameInput = document.querySelector('#bathroomName');
-   let addressInput = document.querySelector('#bathroomAddress');
 
-    let newBathroom = {
-        name: nameInput.value,
-        address: addressInput.value
-    };
-    bathroomRef.add(newBathroom);
+function createBathroom() {
+  let addressInput = document.querySelector('#address');
 
-}*/
+
+
+
+
+
+
+
+  // let addNewMarker = new google.maps.LatLng (pos);
+  // function addMarker (location){
+  //   let marker = new google.maps.Marker({
+  //     position: location,
+  //     map: map,
+  //   });
+  // }
+
+
+
+
+
+
+
+
+  let instance = M.FormSelect.getInstance(elem);
+  console.log(instance.getSelectedValues());
+
+
+
+  let newBathroom = {
+    address: addressInput.value,
+    disabled: instance.getSelectedValues().includes("disabled"),
+    baby: instance.getSelectedValues().includes("baby"),
+    free: instance.getSelectedValues().includes("free")
+  };
+  bathroomRef.add(newBathroom);
+
+
+
+}
+
+//geocoding, turning coordinates to an address
+
+
+
 
 
 
 //Acessing user location
 var map, infoWindow;
-
+var pos;
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -267,25 +327,26 @@ function initMap() {
       lng: 150.644
     },
     zoom: 15,
-		disableDefaultUI: true,
+    disableDefaultUI: true,
     styles: mapStyling
 
   });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
-  // map.data.loadGeoJson('locations.json');
-  // map.data.addGeoJson();
-  // map.data.setMap(map);
+  map.data.loadGeoJson('locations.json');
+  map.data.addGeoJson();
+  map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
 
       //Puts a pop-up for testing
       infoWindow.setPosition(pos);
@@ -293,9 +354,50 @@ function initMap() {
       infoWindow.open(map);
       map.setCenter(pos);
 
+      //geocoding
+
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.lat},${pos.lng}&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk`)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          // Work with JSON data here
+          console.log(data);
+          document.getElementById("address").value = data.results[0].formatted_address;
+
+        })
+
+//  Add New Marker
+
+
+
+
+
+
+
+
+
+
 
       //centers the map to the user location
       map.setCenter(pos);
+      //creates a div with a class centerMe and appends it too the map section
+
+      let img = document.createElement("img");
+      img.setAttribute('class', 'centerMe');
+      img.src = 'img/locate.svg';
+      document.querySelector('#map').appendChild(img);
+
+
+      // Adds a screen that confirms the user that he/she added a new toilet
+
+
+
+
+      //Adds an event listener to the div that centers the map to the users location
+      document.querySelector(".centerMe").addEventListener('click', function() {
+        map.setCenter(pos);
+      });
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -303,6 +405,7 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+
 }
 
 
@@ -361,3 +464,7 @@ function setDefaultPage() {
 }
 
 setDefaultPage();
+
+
+
+//Center button
