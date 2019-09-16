@@ -1,4 +1,4 @@
-//"use strict";
+"use strict";
 
 // Materialize auto initilizer
 M.AutoInit();
