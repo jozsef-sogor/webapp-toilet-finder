@@ -15,12 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
 		.fadeOut();
 });
 
-<<<<<<< HEAD
 
 //Acessing user location
 var map, infoWindow;
-=======
-*/
+
 
 
 
@@ -54,7 +52,7 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 var map;
 
 //var infoWindow;
->>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
+
 function initMap() {
 
 
@@ -429,21 +427,14 @@ function showPage(pageId) {
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
-<<<<<<< HEAD
-    if (pageId === "addToilet" || pageId === "safetyTips")
-        {
-            document.getElementById("filters").style.visibility = "hidden";
-        }
-    else{
-        document.getElementById("filters").style.visibility = "visible";
-    }
-=======
+
+
   if (pageId === "map") {
     document.getElementById("filters").style.display = "flex";
   } else {
     document.getElementById("filters").style.display = "none";
   }
->>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
+
 }
 
 // sets active tabbar/ menu item
