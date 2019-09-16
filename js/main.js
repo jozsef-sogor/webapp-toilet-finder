@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 // Materialize auto initilizer
 M.AutoInit();
@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 */
 
-
+var selectedPosition;
+var pos;
 
 
 $(window).load(function() { //Do the code in the {}s when the window has loaded
@@ -51,8 +52,8 @@ var map;
 //var infoWindow;
 function initMap() {
 
-  var directionsService = new google.maps.DirectionsService();
-  var directionsRenderer = new google.maps.DirectionsRenderer();
+   directionsService = new google.maps.DirectionsService();
+   directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: -34.397,
@@ -73,7 +74,7 @@ function initMap() {
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+       pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
@@ -83,7 +84,7 @@ function initMap() {
       infoWindow.setContent('Gotcha...');
       infoWindow.open(map);
       map.setCenter(pos);
-      //calculateAndDisplayRoute(directionsService, directionsRenderer, pos); Calling the directions function
+   
 
       //centers the map to the user location
       map.setCenter(pos);
@@ -109,12 +110,12 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 
 // Directions function
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
+function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pinLocation) {
 
         directionsService.route(
             {
               origin: pos ,
-              destination: 'Copenhagen',
+              destination: pinLocation,
               travelMode: 'WALKING'
             },
             function(response, status) {
@@ -322,8 +323,12 @@ function createBathroom() {
 //Acessing user location
 var map, infoWindow;
 var pos;
+var directionsService;
+var directionsRenderer;
 
 function initMap() {
+     directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -335,6 +340,7 @@ function initMap() {
     styles: mapStyling
 
   });
+    directionsRenderer.setMap(map);
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
@@ -549,7 +555,7 @@ function appendLocations(locations) {
     console.log(markers);
     //Listens if a pin is clicked
     newMarker.addListener('click', function() {
-      let selectedPosition = this.position.toString();
+       selectedPosition = this.position;
       let selectedAddress = this.address.toString();
       let selectedBaby = this.baby;
       let selectedDisabled = this.disabled;
@@ -567,7 +573,7 @@ function appendLocations(locations) {
           <li id="free"><img src="../img/free.svg" alt="free"></li>
           </ul>
 
-          <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute()">Navigate</button>
+          <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute(directionsService,directionsRenderer,pos,selectedPosition)">Navigate</button>
           </div>
       `;
 
