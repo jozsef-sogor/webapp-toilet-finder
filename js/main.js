@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 var selectedPosition;
 var pos;
+var distance;
+var selectedAddress;
 
 
 $(window).load(function() { //Do the code in the {}s when the window has loaded
@@ -120,7 +122,26 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
             },
             function(response, status) {
               if (status === 'OK') {
+                  
                 directionsRenderer.setDirections(response);
+                  distance = response.routes[0].legs[0].distance.text;
+                  let htmlTemplate = `
+      <div class="filterModal">
+      <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
+          <p>${selectedAddress}</p><p>${distance}</p>
+          <ul>
+          <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
+          <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
+          <li id="free"><img src="../img/free.svg" alt="free"></li>
+          </ul>
+
+          <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute(directionsService,directionsRenderer,pos,selectedPosition)">Navigate</button>
+          </div>
+      `;
+
+
+
+      document.querySelector("#filters").innerHTML = htmlTemplate;
               } else {
                 window.alert('Directions request failed due to ' + status);
               }
@@ -557,10 +578,11 @@ function appendLocations(locations) {
     //Listens if a pin is clicked
     newMarker.addListener('click', function() {
        selectedPosition = this.position;
-      let selectedAddress = this.address.toString();
+      selectedAddress = this.address.toString();
       let selectedBaby = this.baby;
       let selectedDisabled = this.disabled;
       let selectedFree = this.free;
+    
 
       console.log(selectedAddress);
 
