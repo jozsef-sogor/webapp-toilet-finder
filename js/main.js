@@ -559,7 +559,7 @@ function appendLocations(locations) {
 
       let htmlTemplate = `
       <div class="filterModal">
-      <a class="btn-floating btn-large waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
+      <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p>
           <ul>
           <li id="baby"><img src="../img/baby.svg" alt="baby icon"> ${selectedBaby}</li>
@@ -600,14 +600,7 @@ function appendLocations(locations) {
     });
   };
 
-function closeFilterModal(){
 
-  document.querySelector("#filters").innerHTML = `
-  <button><img src="img/disabled.svg" alt="disabled icon"></button>
-  <button><img src="img/baby.svg" alt="baby icon"></button>
-  <button><img src="img/free.svg" alt="free icon"></button>
-  `;
-};
 
 
 
