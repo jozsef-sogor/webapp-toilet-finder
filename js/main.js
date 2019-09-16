@@ -128,7 +128,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
         let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
-          <p>${selectedAddress}</p><p>${distance}</p>
+          <h3>${selectedAddress} <br> <p>${distance} Away</p></h3>
           <ul>
           <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
           <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
