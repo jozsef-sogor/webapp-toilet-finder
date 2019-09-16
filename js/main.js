@@ -108,8 +108,9 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 }
 
 // Directions function
-/*
+
 function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
+
         directionsService.route(
             {
               origin: pos ,
@@ -126,7 +127,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
       }
 
 
-*/
+
 var mapStyling = [{
     "elementType": "geometry",
     "stylers": [{
@@ -561,18 +562,39 @@ function appendLocations(locations) {
       <a class="btn-floating btn-large waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p>
           <ul>
-          <li>${selectedBaby}</li>
-          <li>${selectedDisabled}</li>
-          <li>${selectedFree}</li>
+          <li id="baby"><img src="../img/baby.svg" alt="baby icon"> ${selectedBaby}</li>
+          <li id="disabled"><img src="../img/disabled.svg" alt="disabled">${selectedDisabled}</li>
+          <li id="free"><img src="../img/free.svg" alt="free icon"> ${selectedFree}</li>
           </ul>
 
-          <button class="modal-close waves-effect waves-light btn" onclick="navigate()">Navigate</button>
+          <button class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute()">Navigate</button>
           </div>
       `;
 
+
+
       document.querySelector("#filters").innerHTML = htmlTemplate;
     //  document.querySelector("body").addClass(".modalOpen")
+    if (selectedBaby) {
+      document.querySelector("#baby").style.display="block";
+    }
+    else {
+      document.querySelector("#baby").style.display="none";
+    }
 
+    if (selectedDisabled) {
+      document.querySelector("#disabled").style.display="block";
+    }
+    else {
+      document.querySelector("#disabled").style.display="none";
+    }
+
+    if (selectedFree) {
+      document.querySelector("#free").style.display="block";
+    }
+    else {
+      document.querySelector("#free").style.display="none";
+    }
 
       console.log(selectedPosition);
     });
