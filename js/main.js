@@ -55,8 +55,8 @@ var map;
 //var infoWindow;
 function initMap() {
 
-   directionsService = new google.maps.DirectionsService();
-   directionsRenderer = new google.maps.DirectionsRenderer();
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: -34.397,
@@ -77,7 +77,7 @@ function initMap() {
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-       pos = {
+      pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
@@ -87,7 +87,7 @@ function initMap() {
       infoWindow.setContent('Gotcha...');
       infoWindow.open(map);
       map.setCenter(pos);
-   
+
 
       //centers the map to the user location
       map.setCenter(pos);
@@ -115,18 +115,17 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pinLocation) {
 
-        directionsService.route(
-            {
-              origin: pos ,
-              destination: pinLocation,
-              travelMode: 'WALKING'
-            },
-            function(response, status) {
-              if (status === 'OK') {
-                  
-                directionsRenderer.setDirections(response);
-                  distance = response.routes[0].legs[0].distance.text;
-                 let htmlTemplate = `
+  directionsService.route({
+      origin: pos,
+      destination: pinLocation,
+      travelMode: 'WALKING'
+    },
+    function(response, status) {
+      if (status === 'OK') {
+
+        directionsRenderer.setDirections(response);
+        distance = response.routes[0].legs[0].distance.text;
+        let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p><p>${distance}</p>
@@ -142,36 +141,33 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
 
 
 
-      document.querySelector("#filters").innerHTML = htmlTemplate;
-    //  document.querySelector("body").addClass(".modalOpen")
-    if (selectedBaby) {
-      document.querySelector("#baby").style.display="block";
-    }
-    else {
-      document.querySelector("#baby").style.display="none";
-    }
+        document.querySelector("#filters").innerHTML = htmlTemplate;
+        //  document.querySelector("body").addClass(".modalOpen")
+        if (selectedBaby) {
+          document.querySelector("#baby").style.display = "block";
+        } else {
+          document.querySelector("#baby").style.display = "none";
+        }
 
-    if (selectedDisabled) {
-      document.querySelector("#disabled").style.display="block";
-    }
-    else {
-      document.querySelector("#disabled").style.display="none";
-    }
+        if (selectedDisabled) {
+          document.querySelector("#disabled").style.display = "block";
+        } else {
+          document.querySelector("#disabled").style.display = "none";
+        }
 
-    if (selectedFree) {
-      document.querySelector("#free").style.display="block";
-    }
-    else {
-      document.querySelector("#free").style.display="none";
-    }
+        if (selectedFree) {
+          document.querySelector("#free").style.display = "block";
+        } else {
+          document.querySelector("#free").style.display = "none";
+        }
 
-      
-  
-              } else {
-                window.alert('Directions request failed due to ' + status);
-              }
-            });
+
+
+      } else {
+        window.alert('Directions request failed due to ' + status);
       }
+    });
+}
 
 
 
@@ -303,13 +299,13 @@ var mapStyling = [{
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
-   authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
-   databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
-   projectId: "public-toilet-finder-4e2f0",
-   storageBucket: "",
-   messagingSenderId: "509217784069",
-   appId: "1:509217784069:web:3a19197f49947c53f7f76c"
- };
+  authDomain: "public-toilet-finder-4e2f0.firebaseapp.com",
+  databaseURL: "https://public-toilet-finder-4e2f0.firebaseio.com",
+  projectId: "public-toilet-finder-4e2f0",
+  storageBucket: "",
+  messagingSenderId: "509217784069",
+  appId: "1:509217784069:web:3a19197f49947c53f7f76c"
+};
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -373,7 +369,7 @@ var directionsService;
 var directionsRenderer;
 
 function initMap() {
-     directionsService = new google.maps.DirectionsService();
+  directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer();
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -386,8 +382,10 @@ function initMap() {
     styles: mapStyling
 
   });
-    directionsRenderer.setMap(map);
-    directionsRenderer.setOptions( { suppressMarkers: true});
+  directionsRenderer.setMap(map);
+  directionsRenderer.setOptions({
+    suppressMarkers: true
+  });
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
@@ -602,12 +600,12 @@ function appendLocations(locations) {
     console.log(markers);
     //Listens if a pin is clicked
     newMarker.addListener('click', function() {
-       selectedPosition = this.position;
+      selectedPosition = this.position;
       selectedAddress = this.address.toString();
-       selectedBaby = this.baby;
-       selectedDisabled = this.disabled;
-       selectedFree = this.free;
-    
+      selectedBaby = this.baby;
+      selectedDisabled = this.disabled;
+      selectedFree = this.free;
+
 
       console.log(selectedAddress);
 
@@ -628,107 +626,131 @@ function appendLocations(locations) {
 
 
       document.querySelector("#filters").innerHTML = htmlTemplate;
-    //  document.querySelector("body").addClass(".modalOpen")
-    if (selectedBaby) {
-      document.querySelector("#baby").style.display="block";
-    }
-    else {
-      document.querySelector("#baby").style.display="none";
-    }
+      //  document.querySelector("body").addClass(".modalOpen")
+      if (selectedBaby) {
+        document.querySelector("#baby").style.display = "block";
+      } else {
+        document.querySelector("#baby").style.display = "none";
+      }
 
-    if (selectedDisabled) {
-      document.querySelector("#disabled").style.display="block";
-    }
-    else {
-      document.querySelector("#disabled").style.display="none";
-    }
+      if (selectedDisabled) {
+        document.querySelector("#disabled").style.display = "block";
+      } else {
+        document.querySelector("#disabled").style.display = "none";
+      }
 
-    if (selectedFree) {
-      document.querySelector("#free").style.display="block";
-    }
-    else {
-      document.querySelector("#free").style.display="none";
-    }
+      if (selectedFree) {
+        document.querySelector("#free").style.display = "block";
+      } else {
+        document.querySelector("#free").style.display = "none";
+      }
 
       console.log(selectedPosition);
     });
   };
 
-
-
-
-
-//   document.querySelector("#up").addEventListener("click", function() {
-//
-//       if(document.querySelector("#filters").classList.contains("filterModal")){
-//
-//       document.querySelector("#filters").innerHTML = "test";
-//
-// };
-
-//});
-
 }
+
+
+
+
+function closeFilterModal() {
+  document.querySelector("#filters").innerHTML = `
+         <img src="img/disabled.svg" alt="disabled" onclick="disabledOnClick()">
+         <img src="img/baby.svg" alt="baby" onclick="babyOnClick()">
+         <img src="img/free.svg" alt="free" onclick="freeOnClick()">
+         `;
+};
+
 
 console.log(markers);
 
-let criteria = {
-  baby: true,
-  disabled: false,
-  free: true
-}
 
+//filtering
 
+let babyFilter = false;
+let disabledFilter = false;
+let freeFilter = false;
 
-  function closeFilterModal() {
-         document.querySelector("#filters").innerHTML = `<button><img src="img/disabled.svg" alt="disabled"></button>
-         <button><img src="img/baby.svg" alt="baby"></button>
-         <button><img src="img/free.svg" alt="free"></button>`;
+function babyOnClick() {
+  if (babyFilter) {
+    babyFilter = false;
+    for (let searched of markers) {
+      if (searched.baby) {
+      } else {
+        searched.setVisible(true);
+      }
+    }
+  } else {
+    babyFilter = true;
+    for (let searched of markers) {
+      if (searched.baby) {
+      } else {
+        searched.setVisible(false);
+      }
+    }
+  }
+};
 
-  };
+function freeOnClick() {
+  if (freeFilter) {
+    freeFilter = false;
+    for (let searched of markers) {
+      if (searched.free) {
+      } else {
+        searched.setVisible(true);
+      }
+    }
+  } else {
+    babyFilter = true;
+    for (let searched of markers) {
+      if (searched.free) {
+      } else {
+        searched.setVisible(false);
+      }
+    }
+  }
+};
 
-
-
-
-let searchArray = [];
-
-function filtering() {
-  for (let searched of markers) {
-
-    searchArray = [
-      searched.baby,
-      searched.disabled,
-      searched.free
-    ]
-
-    if (searchArray.toString() == Object.values(criteria).toString()) {
-      console.log("true");
-    } else {
-      console.log("false");
+function disabledOnClick() {
+  if (disabledFilter) {
+    disabledFilter = false;
+    for (let searched of markers) {
+      if (searched.disabled) {
+      } else {
+        searched.setVisible(true);
+      }
+    }
+  } else {
+    disabledFilter = true;
+    for (let searched of markers) {
+      if (searched.disabled) {
+      } else {
+        searched.setVisible(false);
+      }
     }
   }
 };
 
 
+document.getElementById("tip1").addEventListener('click', function() {
 
-document.getElementById("tip1").addEventListener('click', function(){
-
-     document.getElementById("tip2").style.visibility = "visible";
-    document.getElementById("tip2").style.height = "235px";
+  document.getElementById("tip2").style.visibility = "visible";
+  document.getElementById("tip2").style.height = "235px";
 });
 
-document.getElementById("tip2").addEventListener('click', function(){
+document.getElementById("tip2").addEventListener('click', function() {
 
-     document.getElementById("tip3").style.visibility = "visible";
-    document.getElementById("tip3").style.height = "235px";
+  document.getElementById("tip3").style.visibility = "visible";
+  document.getElementById("tip3").style.height = "235px";
 });
-document.getElementById("tip3").addEventListener('click', function(){
+document.getElementById("tip3").addEventListener('click', function() {
 
-     document.getElementById("tip4").style.visibility = "visible";
-    document.getElementById("tip4").style.height = "235px";
+  document.getElementById("tip4").style.visibility = "visible";
+  document.getElementById("tip4").style.height = "235px";
 });
-document.getElementById("tip4").addEventListener('click', function(){
+document.getElementById("tip4").addEventListener('click', function() {
 
-     document.getElementById("tip5").style.visibility = "visible";
-    document.getElementById("tip5").style.height = "235px";
+  document.getElementById("tip5").style.visibility = "visible";
+  document.getElementById("tip5").style.height = "235px";
 });
