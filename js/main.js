@@ -562,12 +562,12 @@ function appendLocations(locations) {
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p>
           <ul>
-          <li id="baby"><img src="../img/baby.svg" alt="baby icon"> ${selectedBaby}</li>
-          <li id="disabled"><img src="../img/disabled.svg" alt="disabled">${selectedDisabled}</li>
-          <li id="free"><img src="../img/free.svg" alt="free icon"> ${selectedFree}</li>
+          <li id="baby"><img src="../img/baby.svg" alt="baby icon"></li>
+          <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
+          <li id="free"><img src="../img/free.svg" alt="free icon"></li>
           </ul>
 
-          <button class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute()">Navigate</button>
+          <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute()">Navigate</button>
           </div>
       `;
 
@@ -600,10 +600,15 @@ function appendLocations(locations) {
     });
   };
 
+  document.querySelector(".tabbar").addEventListener("click", function() {
 
+if(document.querySelector("#filters").classList.contains("filterModal")){
 
+  document.querySelector("#filters").innerHTML = "test";
 
+};
 
+});
 
 }
 
