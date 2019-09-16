@@ -656,9 +656,9 @@ function appendLocations(locations) {
 
 function closeFilterModal() {
   document.querySelector("#filters").innerHTML = `
-         <img src="img/disabled.svg" alt="disabled" onclick="disabledOnClick()">
-         <img src="img/baby.svg" alt="baby" onclick="babyOnClick()">
-         <img src="img/free.svg" alt="free" onclick="freeOnClick()">
+         <img id="disabledIcon" src="img/disabled.svg" alt="disabled" onclick="disabledOnClick()">
+         <img id="babyIcon" src="img/baby.svg" alt="baby" onclick="babyOnClick()">
+         <img id="freeIcon" src="img/free.svg" alt="free" onclick="freeOnClick()">
          `;
 };
 
@@ -676,17 +676,19 @@ function babyOnClick() {
   if (babyFilter) {
     babyFilter = false;
     for (let searched of markers) {
-      if (searched.baby) {
-      } else {
+      if (searched.baby) {} else {
         searched.setVisible(true);
+        document.querySelector("#babyIcon").style.opacity = ".2";
+
       }
     }
   } else {
     babyFilter = true;
     for (let searched of markers) {
-      if (searched.baby) {
-      } else {
+      if (searched.baby) {} else {
         searched.setVisible(false);
+        document.querySelector("#babyIcon").style.opacity = "1";
+
       }
     }
   }
@@ -696,17 +698,17 @@ function freeOnClick() {
   if (freeFilter) {
     freeFilter = false;
     for (let searched of markers) {
-      if (searched.free) {
-      } else {
+      if (searched.free) {} else {
         searched.setVisible(true);
+        document.querySelector("#freeIcon").style.opacity = ".2";
       }
     }
   } else {
-    babyFilter = true;
+    freeFilter = true;
     for (let searched of markers) {
-      if (searched.free) {
-      } else {
+      if (searched.free) {} else {
         searched.setVisible(false);
+        document.querySelector("#freeIcon").style.opacity = "1";
       }
     }
   }
@@ -716,17 +718,17 @@ function disabledOnClick() {
   if (disabledFilter) {
     disabledFilter = false;
     for (let searched of markers) {
-      if (searched.disabled) {
-      } else {
+      if (searched.disabled) {} else {
         searched.setVisible(true);
+        document.querySelector("#disabledIcon").style.opacity = ".2";
       }
     }
   } else {
     disabledFilter = true;
     for (let searched of markers) {
-      if (searched.disabled) {
-      } else {
+      if (searched.disabled) {} else {
         searched.setVisible(false);
+        document.querySelector("#disabledIcon").style.opacity = "1";
       }
     }
   }

@@ -111,6 +111,11 @@ nav {
   padding: 1.55em;
 }
 
+#filters img {
+  opacity: .2;
+  transition: .4s
+}
+
 .disabledImg{
 opacity: .4;
 }
