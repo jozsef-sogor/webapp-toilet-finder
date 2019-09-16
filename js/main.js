@@ -1,12 +1,12 @@
-"use strict";
+//"use strict";
 
 // Materialize auto initilizer
 M.AutoInit();
 
-
+var selectedPosition;
+var pos;
 
 // Loader
-/*
 document.addEventListener("DOMContentLoaded", function(){
 	$('.preloader-background').delay(1700).fadeOut('slow');
 
@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
 		.fadeOut();
 });
 
-*/
+
+//Acessing user location
+var map, infoWindow;
+
 
 
 
@@ -49,10 +52,10 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 var map;
 
 //var infoWindow;
+
 function initMap() {
 
-  var directionsService = new google.maps.DirectionsService();
-  var directionsRenderer = new google.maps.DirectionsRenderer();
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: -34.397,
@@ -73,7 +76,7 @@ function initMap() {
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+       pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
@@ -83,7 +86,7 @@ function initMap() {
       infoWindow.setContent('Gotcha...');
       infoWindow.open(map);
       map.setCenter(pos);
-      //calculateAndDisplayRoute(directionsService, directionsRenderer, pos); Calling the directions function
+
 
       //centers the map to the user location
       map.setCenter(pos);
@@ -107,24 +110,6 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
   infoWindow.open(map);
 }
 
-// Directions function
-
-function calculateAndDisplayRoute(directionsService, directionsRenderer, pos) {
-
-        directionsService.route(
-            {
-              origin: pos ,
-              destination: 'Copenhagen',
-              travelMode: 'WALKING'
-            },
-            function(response, status) {
-              if (status === 'OK') {
-                directionsRenderer.setDirections(response);
-              } else {
-                window.alert('Directions request failed due to ' + status);
-              }
-            });
-      }
 
 
 
@@ -322,9 +307,12 @@ function createBathroom() {
 //Acessing user location
 var map, infoWindow;
 var pos;
+var directionsService;
+var directionsRenderer;
 
 function initMap() {
-
+      directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: -34.397,
@@ -335,6 +323,7 @@ function initMap() {
     styles: mapStyling
 
   });
+    directionsRenderer.setMap(map);
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
@@ -346,7 +335,7 @@ function initMap() {
   //if yes it puts the coordinates into (global) variables
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      pos = {
+       pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
@@ -357,6 +346,7 @@ function initMap() {
       infoWindow.setContent('It was Ignas...');
       infoWindow.open(map);
       map.setCenter(pos);
+
 
       //geocoding
 
@@ -372,6 +362,8 @@ function initMap() {
         })
 
       //  Add New Marker
+
+
 
 
 
@@ -398,8 +390,7 @@ function initMap() {
 
       //Adds an event listener to the div that centers the map to the users location
       document.querySelector(".centerMe").addEventListener('click', function() {
-        map.setCenter(pos);
-      });
+        map.setCenter(pos); });
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -436,11 +427,14 @@ function showPage(pageId) {
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
+
+
   if (pageId === "map") {
     document.getElementById("filters").style.display = "flex";
   } else {
     document.getElementById("filters").style.display = "none";
   }
+
 }
 
 // sets active tabbar/ menu item
@@ -470,7 +464,6 @@ setDefaultPage();
 console.log(pos);
 
 //Center button
-
 
 
 
@@ -513,6 +506,7 @@ function appendTips(posts) {
 
 }
 
+
 // append locations to the DOM
 function appendLocations(locations) {
 
@@ -549,13 +543,12 @@ function appendLocations(locations) {
     console.log(markers);
     //Listens if a pin is clicked
     newMarker.addListener('click', function() {
-      let selectedPosition = this.position.toString();
+       selectedPosition = this.position;
       let selectedAddress = this.address.toString();
       let selectedBaby = this.baby;
       let selectedDisabled = this.disabled;
       let selectedFree = this.free;
 
-      console.log(selectedAddress);
 
       let htmlTemplate = `
       <div class="filterModal">
@@ -668,3 +661,23 @@ document.getElementById("tip4").addEventListener('click', function(){
      document.getElementById("tip5").style.visibility = "visible";
     document.getElementById("tip5").style.height = "235px";
 });
+// Directions function
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pinLocation) {
+
+        directionsService.route(
+            {
+              origin: pos ,
+              destination: pinLocation ,
+              travelMode: 'WALKING'
+            },
+            function(response, status) {
+              if (status === 'OK') {
+                directionsRenderer.setDirections(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+    console.log(pinLocation);
+    console.log(pos);
+      }
