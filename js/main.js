@@ -562,9 +562,9 @@ function appendLocations(locations) {
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p>
           <ul>
-          <li id="baby"><img src="../img/baby.svg" alt="baby icon"></li>
+          <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
           <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
-          <li id="free"><img src="../img/free.svg" alt="free icon"></li>
+          <li id="free"><img src="../img/free.svg" alt="free"></li>
           </ul>
 
           <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute()">Navigate</button>
@@ -600,15 +600,19 @@ function appendLocations(locations) {
     });
   };
 
-  document.querySelector(".tabbar").addEventListener("click", function() {
 
-if(document.querySelector("#filters").classList.contains("filterModal")){
 
-  document.querySelector("#filters").innerHTML = "test";
 
-};
 
-});
+//   document.querySelector("#up").addEventListener("click", function() {
+//
+//       if(document.querySelector("#filters").classList.contains("filterModal")){
+//
+//       document.querySelector("#filters").innerHTML = "test";
+//
+// };
+
+//});
 
 }
 
@@ -622,6 +626,12 @@ let criteria = {
 
 
 
+  function closeFilterModal() {
+         document.querySelector("#filters").innerHTML = `<button><img src="img/disabled.svg" alt="disabled"></button>
+         <button><img src="img/baby.svg" alt="baby"></button>
+         <button><img src="img/free.svg" alt="free"></button>`;
+
+  };
 
 
 
