@@ -341,6 +341,7 @@ function initMap() {
 
   });
     directionsRenderer.setMap(map);
+    directionsRenderer.setOptions( { suppressMarkers: true});
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
