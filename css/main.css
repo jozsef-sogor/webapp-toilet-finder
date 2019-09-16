@@ -62,7 +62,7 @@ header {
   display: none;
 }
 
-/* Icon nav styling */
+/* -------- Icon nav styling --------- */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   display: block;
   font-size: 24px;
@@ -76,7 +76,7 @@ nav {
   line-height: 56px;
 }
 
-/* Center me button styling */
+/* --------- Center me button styling --------- */
 .centerMe {
   background-color: #fff;
   border: 2px solid #fff;
@@ -97,7 +97,7 @@ nav {
   bottom: 30vh;
 }
 
-/* Filters Styling */
+/* --------- Filters Styling --------- */
 #filters {
   bottom: 67px;
   position: fixed;
@@ -121,8 +121,6 @@ opacity: .4;
   opacity: .4;
 }
 
-
-
 .filterModal{
   display: flex;
 	flex-direction: row;
@@ -132,7 +130,6 @@ opacity: .4;
 	align-content: space-around;
 }
 
-
 .filterModal ul {
   display: flex;
   justify-content: space-between;
@@ -141,6 +138,9 @@ opacity: .4;
 .filterModal ul li {
   padding: 5px;
 }
+
+
+/* --------- */
 
 form {
   margin-top: 6rem;
@@ -162,6 +162,45 @@ h1 {
   font-family: 'Proza Libre', sans-serif;
 }
 
+#bottomBackground {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  z-index: -1;
+  width: 40%;
+}
+
+#topBackground {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  width: 60%;
+}
+
+h2 {
+  color: #1F53FF;
+  font-size: 16px;
+  font-family: 'Proza Libre', sans-serif;
+  text-align: center;
+  width: 70%;
+  padding-top: 60px;
+  margin: 0;
+}
+
+h3 {
+  color: SlateGrey;
+  font-size: 15px;
+  font-family: 'Proza Libre', sans-serif;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
 li {
   list-style: none;
 }
@@ -170,7 +209,8 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* add toilet input field styling */
+/* --------- add toilet input field styling --------- */
+
 .input-field {
   margin: 1rem;
   padding: 1rem;
@@ -224,7 +264,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   font-size: 1rem;
 }
 
-/* add toilet button styling */
+/* --------- add toilet button styling --------- */
 .btn, .btn-large, .btn-small {
   background: linear-gradient(90deg, rgba(61, 0, 203, 1) 38%, rgba(0, 134, 255, 1) 79%, rgba(0, 159, 255, 1) 100%);
 }
@@ -234,6 +274,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   padding: 0px;
 }
 
+/* are we using it????? ?????????????????????????????????????????? <----- DELETE */
 #waves-effect {
   margin-top: 20vh;
 }
@@ -250,7 +291,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   display: flex;
 }
 
-/* Style the links inside the navigation bar */
+/* --------- Style the links inside the navigation bar --------- */
 .tabbar a {
   display: inline-block;
   color: var(--text-color-dark);
@@ -263,22 +304,16 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   width: 100%;
 }
 
-/* Change the color of links on hover */
+/* --------- Change the color of links on hover --------- */
 .tabbar a:hover {
   background-color: var(--light-grey);
   color: var(--text-color-dark);
 }
 
-/* Add a color to the active/current link */
+/* --------- Add a color to the active/current link --------- */
 .tabbar a.active {
   background-color: var(--light-grey);
   color: var(--text-color-dark);
-}
-
-/* safety tips paper holder background */
-#safetyTips {
-  overflow: auto;
-  background-image: linear-gradient(to top, rgba(0,0,255,0.1) 0%, rgba(61, 0, 203, 0.1) 35%, rgba(0,0,255,0) 100%);
 }
 
 body::-webkit-scrollbar {
@@ -291,7 +326,13 @@ body::-webkit-scrollbar-thumb {
   background-color: #f1f1f4;
 }
 
-/* SAFETY TIPS paper holder */
+/* --------- safety tips background --------- */
+#safetyTips {
+  overflow: auto;
+  background-image: linear-gradient(to top, rgba(0,0,255,0.1) 0%, rgba(61, 0, 203, 0.1) 35%, rgba(0,0,255,0) 100%);
+}
+
+/* --------- toilet paper shape --------- */
 .holder {
   margin-left: 25px;
   z-index=-10;
@@ -344,7 +385,6 @@ body::-webkit-scrollbar-thumb {
   font-family: 'Proza Libre', sans-serif;
   font-size: 17px;
   color: #536569;
-/*  color: #1f53ff; */
 }
 
 h4 {
@@ -357,7 +397,7 @@ h4 {
   letter-spacing: 2px;
 }
 
-/* if we want to put the logo on the safety tips page
+/* --------- if we want to put the logo on the safety tips page ---------
 .logost {
   position: absolute;
   z-index: 10;
@@ -382,9 +422,11 @@ h4 {
   margin-bottom: 50px;
 }
 
-/*==================================================
- * Effect - shadow on the bottom
- * ===============================================*/
+/* --------- Effect - shadow on the bottom ---------
+ Credit the author: CSS3 Box Shadows Effects
+A PEN BY Halil İbrahim Nuroğlu
+codepen.io
+--------- */
 .effect3 {
   position: relative;
 }
@@ -409,18 +451,25 @@ h4 {
   transform: rotate(-3deg);
 }
 
-/* taping icon animation */
+#tip2, #tip3, #tip4, #tip5 {
+  height: 0px;
+  visibility: hidden;
+  transition: all 2s ease;
+  overflow: hidden;
+}
+
+/* --------- taping icon animation --------- */
 .tap {
   position: relative;
   margin-left: -5px;
   margin-top: -15px;
-  width: 12%;
+  width: 10%;
   top: 150px;
   opacity: 0.3;
 }
 
 .bounce {
-  animation: bounce 4s 3s infinite;
+  animation: bounce 3s 3s infinite;
 }
 
 @keyframes bounce {
@@ -437,51 +486,9 @@ h4 {
   }
 }
 
-#tip2, #tip3, #tip4, #tip5 {
-  height: 0px;
-  visibility: hidden;
-  transition: all 2s ease;
-  overflow: hidden;
-}
+/* -------------------- */
 
-#bottomBackground {
-  position: fixed;
-  left: 0;
-  bottom: 10px;
-  z-index: -1;
-  width: 40%;
-}
 
-#topBackground {
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  width: 60%;
-}
-
-h2 {
-  color: #1F53FF;
-  font-size: 16px;
-  font-family: 'Proza Libre', sans-serif;
-  text-align: center;
-  width: 70%;
-  padding-top: 60px;
-  margin: 0;
-}
-
-h3 {
-  color: SlateGrey;
-  font-size: 15px;
-  font-family: 'Proza Libre', sans-serif;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-}
-
-p {
-  font-family: 'Montserrat', sans-serif;
-}
 
 /* ---------- page styling ---------- */
 .page {
@@ -494,7 +501,7 @@ p {
   padding: 55px 0;
 }
 
-/* fade in */
+/* ---------- fade in ---------- */
 @keyframes fadeIn {
   from {
     opacity: 0
