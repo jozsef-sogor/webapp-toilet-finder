@@ -478,11 +478,11 @@ codepen.io
   }
 
   40% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
   60% {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 }
 
