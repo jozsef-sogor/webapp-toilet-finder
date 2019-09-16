@@ -21,6 +21,7 @@ var selectedPosition;
 var pos;
 var distance;
 var selectedAddress;
+var selectedBaby, selectedDisabled, selectedFree;
 
 
 $(window).load(function() { //Do the code in the {}s when the window has loaded
@@ -125,7 +126,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
                   
                 directionsRenderer.setDirections(response);
                   distance = response.routes[0].legs[0].distance.text;
-                  let htmlTemplate = `
+                 let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
           <p>${selectedAddress}</p><p>${distance}</p>
@@ -142,6 +143,30 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
 
 
       document.querySelector("#filters").innerHTML = htmlTemplate;
+    //  document.querySelector("body").addClass(".modalOpen")
+    if (selectedBaby) {
+      document.querySelector("#baby").style.display="block";
+    }
+    else {
+      document.querySelector("#baby").style.display="none";
+    }
+
+    if (selectedDisabled) {
+      document.querySelector("#disabled").style.display="block";
+    }
+    else {
+      document.querySelector("#disabled").style.display="none";
+    }
+
+    if (selectedFree) {
+      document.querySelector("#free").style.display="block";
+    }
+    else {
+      document.querySelector("#free").style.display="none";
+    }
+
+      
+  
               } else {
                 window.alert('Directions request failed due to ' + status);
               }
@@ -579,9 +604,9 @@ function appendLocations(locations) {
     newMarker.addListener('click', function() {
        selectedPosition = this.position;
       selectedAddress = this.address.toString();
-      let selectedBaby = this.baby;
-      let selectedDisabled = this.disabled;
-      let selectedFree = this.free;
+       selectedBaby = this.baby;
+       selectedDisabled = this.disabled;
+       selectedFree = this.free;
     
 
       console.log(selectedAddress);
