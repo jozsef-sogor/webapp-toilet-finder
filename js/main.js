@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", function(){
 		.fadeOut();
 });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+//Acessing user location
+var map, infoWindow;
+=======
+>>>>>>> parent of 26c2e8f... x
 */
 
 
@@ -49,6 +57,10 @@ $(window).load(function() { //Do the code in the {}s when the window has loaded
 var map;
 
 //var infoWindow;
+<<<<<<< HEAD
+=======
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
+>>>>>>> parent of 26c2e8f... x
 function initMap() {
 
   var directionsService = new google.maps.DirectionsService();
@@ -441,6 +453,7 @@ function showPage(pageId) {
   } else {
     document.getElementById("filters").style.display = "none";
   }
+>>>>>>> parent of 26c2e8f... x
 }
 
 // sets active tabbar/ menu item
