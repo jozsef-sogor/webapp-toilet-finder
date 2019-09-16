@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 
+<!--  https://console.firebase.google.com/u/0/project/safety-tips-4e9c9/overview -->
+
 <head>
   <meta charset="utf-8">
   <title>Public Privy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Find the nearest public toilet in your area.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Proza+Libre&display=swap" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Google Maps base -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
 
 </head>
 <header>
@@ -74,7 +77,10 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 
   <!-- tabbar navigation -->
   <nav class="tabbar">
@@ -83,10 +89,30 @@
     <a href="#safetyTips" onclick="showPage('safetyTips')"><i class="large material-icons">local_library</i>Safety tips</a>
   </nav>
 
+<<<<<<< HEAD
+=======
+
+    <!-- filters nav -->
+    <section id="filters">
+
+        <button><img src="img/disabled.svg" alt="disabled"></button>
+        <button><img src="img/baby.svg" alt="baby"></button>
+        <button><img src="img/free.svg" alt="free"></button>
+<!--
+<select class="filters" name="filters">
+  <option id="disabled" [ngValue]="true"><img src="img/disabled.svg" alt="disabled icon"></option>
+  <option id="baby" [ngValue]="true"><img src="img/baby.svg" alt="baby icon"></option>
+  <option id="free" [ngValue]="true"><img src="img/free.svg" alt="free icon"></option>
+</select>-->
+
+    </section>
+
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
   <!-- pages -->
 
   <!-- map page -->
   <section id="map" class="page">
+
 
   </section> <!-- End of map page -->
 
@@ -100,26 +126,100 @@
   </section>
   <!-- addToilet page -->
   <section id="addToilet" class="page">
+<h1>Add New Toilet</h1>
+<img id="bottomBackground" src="img/background1.svg" alt=".">
+<img src="img/background2.svg" alt="." id="topBackground">
 
-    <div id="addToiletContent"></div>
+  <form class="col s12">
+    <div>
+  <div class="input-field col s6">
+  <input id="address" type="text" >
+  <label for="address">Address</label>
+</div>
 
+</div>
+<div>
+    <div class="input-field col s12 m6">
+      <select multiple class="icons" id="elem">
+        <option  id="disabledOption" value="disabled" data-icon="img/disabled.svg">Disabled</option>
+        <option id="babyOption" value="baby" data-icon="img/baby.svg">Baby Room</option>
+        <option id="freeOption" value="free" data-icon="img/free.svg">Free</option>
+      </select>
+      <label>Please Select Toilet Type</label>
+    </div>
+</div>
+</form>
+
+<!-- Modal Trigger -->
+  <button data-target="modal1" class="btn modal-trigger" onclick="createBathroom()">ADD PLACE</button>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <p>Thank you for helping to improve our app.<br>
+New place added succesfully!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#map" onclick="showPage('map')" class="modal-close waves-effect waves-light btn">GO TO MAP</a>
+    </div>
+  </div>
   </section> <!-- End of addToilet page -->
 
 
 
-    <!-- safetyTips page -->
-    <section id="safetyTips" class="page">
+  <!-- safetyTips page -->
+  <section id="safetyTips" class="page">
 
-      <div id="safetyTipsContent">
+    <ul id="safetyTipsContent">
+      <img id="bottomBackground" src="img/background1.svg" alt=".">
+      <img src="img/background2.svg" alt="." id="topBackground">
 
-    <h2> <b> SAFETY TIPS </b><br><small>
-    and etiquette
-    of the public toilets</small>
-    </h2>
+<!-- if we want logo
+<img src="img/logo.png" class=logost> -->
 
-        <div class="safetyTipsContentText">
+      <img src="img/holder.png" style="width:330px" class="holder">
+      <div class="top">
+       <h2> Safety tips and etiquette <br> of public toilets use
+      </h2>
+      <br> <br> <br>
+
+      </div>
+      <div class="box effect3" id="tip5">
+      <h4>
+        -  -  -  -  -  -  -  -  -  -  -  -  -
+      </h4>
+      <h3>
+        <b>Dry your hands with paper towel,
+        dryers collect more bacteria. </b>
+      </h3>
+<img src="img/tap.png" class="tap bounce">
+      </div>
+      <div class="box effect3" id="tip4">
+      <h4>
+        -  -  -  -  -  -  -  -  -  -  -  -  -
+      </h4>
+      <h3>
+        <b>Wash your hands in hot water <br>
+        (around 60 degrees).</b>
+      </h3>
+<img src="img/tap.png" class="tap bounce">
+      </div>
+       <div class="box effect3" id="tip3">
+      <h4>
+        -  -  -  -  -  -  -  -  -  -  -  -  -
+      </h4>
+      <h3>
+        <b>Protect your hands with toilet paper when touching a flush.</b>
+      </h3>
+<img src="img/tap.png" class="tap bounce">
+      </div>
+<div class="box effect3" id="tip2">
+
+      <h4>
+        -  -  -  -  -  -  -  -  -  -  -  -  -
+      </h4>
 
 
+<<<<<<< HEAD
           <h3>
             <span>&#8467;</span><br>
     <b>Don’t put your things in the restroom floor.</b><br>
@@ -135,16 +235,44 @@
     <span>&#8467;</span><br>
     <b>Dry your hands with paper towel, </b>
     dryers collect more bacteria.<br><br>
+=======
+      <h3>
+       <b>Bring own protector <br>
+        and put it on the toilet.</b>
 
-    </h3>
-    </div>
+      <!--
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 
 
+         <br><br>
 
+        <b>Wash your hands in hot water </b><br>
+        (around 60 degrees).<br><br>
 
+        <b>Dry your hands with paper towel, </b>
+        dryers collect more bacteria.<br><br><br> -->
+      </h3>
+
+<img src="img/tap.png" class="tap bounce">
+      </div>
+      <div class="box effect3" id="tip1">
+      <h4>
+        -  -  -  -  -  -  -  -  -  -  -  -  -
+      </h4>
+      <h3>
+        <b>Don’t put your things in the restroom floor.<br>
+        Hang it on the hook.</b>
+      </h3>
+<img src="img/tap.png" class="tap bounce">
       </div>
 
-    </section> <!-- End safetyTips page -->
+
+
+
+
+</ul>
+
+  </section> <!-- End safetyTips page -->
 
 
 
@@ -159,8 +287,16 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- main js file -->
-  <script src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script src="js/main.js"></script>
+<<<<<<< HEAD
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+=======
+  <!-- Google Maps base -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk&callback=initMap" type="text/javascript"></script>
+  <script src="js/locations.js"></script>
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 </body>
 
 </html>

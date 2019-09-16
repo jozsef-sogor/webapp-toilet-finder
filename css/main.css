@@ -25,10 +25,15 @@ html {
   background-color: white;
   position: fixed;
   z-index: 100;
+<<<<<<< HEAD
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+=======
+  height: 100vh;
+  width: 100vw;
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 }
 
 .preloader-wrapper.big {
@@ -59,11 +64,18 @@ html {
 .spinner-blue, .spinner-green {
   border-color: #00f4c4;
 }
+<<<<<<< HEAD
 header{
     display: none;
 }
+=======
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 
-/* Icon nav styling */
+header {
+  display: none;
+}
+
+/* -------- Icon nav styling --------- */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   display: block;
   font-size: 24px;
@@ -77,10 +89,81 @@ nav {
   line-height: 56px;
 }
 
+<<<<<<< HEAD
 /* Filters Styling */
 #filters{
   display: flex;
   justify-content: space-around;
+=======
+/* --------- Center me button styling --------- */
+.centerMe {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  margin-bottom: 22px;
+  text-align: center;
+  color: rgb(25, 25, 25);
+  line-height: 38px;
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index: 99;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 5px;
+  bottom: 30vh;
+}
+
+/* --------- Filters Styling --------- */
+#filters {
+  bottom: 67px;
+  position: fixed;
+  width: 100% !important;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 15px 15px 0 0;
+  background-color: #fff;
+  z-index: 1;
+  padding: 1.55em;
+}
+
+.disabledImg{
+opacity: .4;
+}
+.babyImg{
+  opacity: .4;
+}
+.freeImg{
+  opacity: .4;
+}
+
+.filterModal{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	align-content: space-around;
+}
+
+.filterModal ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterModal ul li {
+  padding: 5px;
+}
+
+
+/* --------- */
+
+form {
+  margin-top: 6rem;
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 }
 
 body {
@@ -96,14 +179,129 @@ h1 {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: 3px;
+  font-family: 'Proza Libre', sans-serif;
+}
+
+#bottomBackground {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  z-index: -1;
+  width: 40%;
+}
+
+#topBackground {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  width: 60%;
+}
+
+h2 {
+  color: #1F53FF;
+  font-size: 16px;
+  font-family: 'Proza Libre', sans-serif;
+  text-align: center;
+  width: 70%;
+  padding-top: 60px;
+  margin: 0;
+}
+
+h3 {
+  color: SlateGrey;
+  font-size: 15px;
+  font-family: 'Proza Libre', sans-serif;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
 }
 
 li {
   list-style: none;
 }
 
+<<<<<<< HEAD
 .removed {
   display: none;
+=======
+a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* --------- add toilet input field styling --------- */
+
+.input-field {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #0000ff;
+  -webkit-box-shadow: 0 1px 0 0 #0000ff;
+  box-shadow: 0 1px 0 0 #0000ff;
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+  color: #0000ff;
+}
+
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #0000ff;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid #0000ff;
+  border-bottom: 2px solid #0000ff;
+}
+
+.input-field>label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+/* --------- add toilet button styling --------- */
+.btn, .btn-large, .btn-small {
+  background: linear-gradient(90deg, rgba(61, 0, 203, 1) 38%, rgba(0, 134, 255, 1) 79%, rgba(0, 159, 255, 1) 100%);
+}
+
+.modal .modal-footer {
+  text-align: center;
+  padding: 0px;
+}
+
+/* are we using it????? ?????????????????????????????????????????? <----- DELETE */
+#waves-effect {
+  margin-top: 20vh;
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 }
 
 /* ---------- tabbar styling ---------- */
@@ -117,10 +315,9 @@ li {
   width: 100%;
   justify-content: space-around;
   display: flex;
-
 }
 
-/* Style the links inside the navigation bar */
+/* --------- Style the links inside the navigation bar --------- */
 .tabbar a {
   display: inline-block;
   color: var(--text-color-dark);
@@ -133,18 +330,19 @@ li {
   width: 100%;
 }
 
-/* Change the color of links on hover */
+/* --------- Change the color of links on hover --------- */
 .tabbar a:hover {
   background-color: var(--light-grey);
   color: var(--text-color-dark);
 }
 
-/* Add a color to the active/current link */
+/* --------- Add a color to the active/current link --------- */
 .tabbar a.active {
   background-color: var(--light-grey);
   color: var(--text-color-dark);
 }
 
+<<<<<<< HEAD
 /*Adding form styling*/
 #addNewTeacher>*, #search>* {
   display: block;
@@ -157,32 +355,45 @@ li {
 
 
 
+=======
+body::-webkit-scrollbar {
+  width: 0;
+}
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 
-/* ----- safety tips css ----- */
-
-#safetyTipsContent {
-display: flex;
-align-items: center;
-flex-flow:  column;
-
-  background-image: url('../img/bckg.jpg');
--webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  max-width: 1342px;
-  max-height: 2008px;
-  background-size: 100%;
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 10px;
+  background-color: #f1f1f4;
 }
 
-.safetyTipsContentText {
-  width: 70%;
-  text-align: right;
-  margin-left: 20%;
-  /* eventually to see better      background-color: white; ======= */
+/* --------- safety tips background --------- */
+#safetyTips {
+  overflow: auto;
+  background-image: linear-gradient(to top, rgba(0,0,255,0.1) 0%, rgba(61, 0, 203, 0.1) 35%, rgba(0,0,255,0) 100%);
 }
 
+/* --------- toilet paper shape --------- */
+.holder {
+  margin-left: 25px;
+  z-index=-10;
+  margin-top: 15px;
+}
+
+.top {
+  width: 74%;
+  height: 200px;
+  background: #fff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-left: 16%;
+  position: absolute;
+  top: 160px;
+  background-color: #ffffff;
+}
+
+<<<<<<< HEAD
 h2 {
   color: #1F53FF;
   font-family: 'Proza Libre', sans-serif;
@@ -194,17 +405,151 @@ h2 {
   background: -webkit-linear-gradient(418ABE , #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+=======
+.top h2 {
+  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40px;
+  padding: 10px;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 18px;
+  color: #33313b;
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 }
 
+.top h3 {
+  text-align: center;
+  position: relative;
+  top: 10px;
+  padding-top: 20px;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 16px;
+  color: #33313b;
+  margin-left: 60px;
+}
 
+<<<<<<< HEAD
 h3 {
   color: SlateGrey;
   font-size: 20px;
+=======
+.box h3 {
+  position: absolute;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   font-family: 'Proza Libre', sans-serif;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
+  font-size: 17px;
+  color: #536569;
 }
+
+h4 {
+  padding-top: 0px;
+  text-align: center;
+  position: relative;
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 17px;
+  color: #bdbdbd;
+  letter-spacing: 2px;
+}
+
+/* --------- if we want to put the logo on the safety tips page ---------
+.logost {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 30px;
+  width: 30%;
+} */
+
+.box {
+  width: 74%;
+  height: 235px;
+  background: #fff;
+  margin-left: 16%;
+  position: absolute;
+  top: 5px;
+  position: absolute;
+  background-color: #ffffff;
+}
+
+#tip1 {
+  margin-top: -21px;
+  margin-bottom: 50px;
+}
+
+/* --------- Effect - shadow on the bottom ---------
+ Credit the author: CSS3 Box Shadows Effects
+A PEN BY Halil İbrahim Nuroğlu
+codepen.io
+--------- */
+.effect3 {
+  position: relative;
+}
+
+.effect3:before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+
+#tip2, #tip3, #tip4, #tip5 {
+  height: 0px;
+  visibility: hidden;
+  transition: all 2s ease;
+  overflow: hidden;
+}
+
+/* --------- taping icon animation --------- */
+.tap {
+  position: relative;
+  margin-left: -5px;
+  margin-top: -15px;
+  width: 10%;
+  top: 150px;
+  opacity: 0.3;
+}
+
+.bounce {
+  animation: bounce 3s 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: scale(1.0);
+  }
+
+  40% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(1.3);
+  }
+}
+
+/* -------------------- */
+
+
 
 /* ---------- page styling ---------- */
 .page {
@@ -217,6 +562,7 @@ h3 {
   padding: 55px 0;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -321,6 +667,9 @@ h1{
 
 /* ---------- animations ---------- */
 /* fade in */
+=======
+/* ---------- fade in ---------- */
+>>>>>>> db64fb327754c0477eb118fc961aaeed71bf27e0
 @keyframes fadeIn {
   from {
     opacity: 0
