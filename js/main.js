@@ -128,7 +128,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
         let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
-          <h3>${selectedAddress} <br> <p>${distance} Away</p></h3>
+          <p id = "navP"> <strong> ${selectedAddress} </strong> <br> ${distance} Away</p>
           <ul>
           <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
           <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
@@ -612,7 +612,7 @@ function appendLocations(locations) {
       let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
-          <p>${selectedAddress}</p>
+          <p id = "navP"> <strong>${selectedAddress}</strong></p>
           <ul>
           <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
           <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>

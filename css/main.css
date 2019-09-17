@@ -136,7 +136,8 @@ grid-row-gap: 0px;
 
 .filterModal ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  margin-top: 19%;
 }
 
 .filterModal ul li {
@@ -211,6 +212,16 @@ li {
 
 a {
   font-family: 'Montserrat', sans-serif;
+}
+
+
+#up {
+  margin-top: 20%;
+}
+
+#navP strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 /* --------- add toilet input field styling --------- */
