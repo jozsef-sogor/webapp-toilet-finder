@@ -674,16 +674,18 @@ function appendLocations(locations) {
       selectedBaby = this.baby;
       selectedDisabled = this.disabled;
       selectedFree = this.free;
+      //Looping through all the pins and
+      //changing all of them back to the default icon
+        for(let changedPin of markers){
+          var iconBase = "../img/pin.png";
+
+          changedPin.setIcon(iconBase);
+        };
 
       var iconBase1 = '../img/test.png';
-
       this.setIcon(iconBase1);
+
       selectedMarker.push(markers);
-
-
-
-
-      console.log(selectedAddress);
 
       let htmlTemplate = `
       <div class="filterModal">
@@ -743,7 +745,7 @@ function closeFilterModal() {
          `;
     directionsRenderer.setMap(null);
 
-    //Loopimg through all the pins and
+    //Looping through all the pins and
     //changing all of them back to the default icon
       for(let changedPin of markers){
         var iconBase = "../img/pin.png";
