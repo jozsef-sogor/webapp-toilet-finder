@@ -772,7 +772,8 @@ function babyOnClick() {
     for (let searched of markers) {
       if (searched.baby) {} else {
         searched.setVisible(true);
-        document.querySelector("#babyIcon").style.opacity = ".2";
+        document.querySelector("#babyIcon").style.opacity = ".4";
+        document.querySelector("#babyIcon").style.height = "30px";
 
       }
     }
@@ -782,6 +783,8 @@ function babyOnClick() {
       if (searched.baby) {} else {
         searched.setVisible(false);
         document.querySelector("#babyIcon").style.opacity = "1";
+        document.querySelector("#babyIcon").style.height = "40px";
+
 
       }
     }
@@ -794,7 +797,9 @@ function freeOnClick() {
     for (let searched of markers) {
       if (searched.free) {} else {
         searched.setVisible(true);
-        document.querySelector("#freeIcon").style.opacity = ".2";
+        document.querySelector("#freeIcon").style.opacity = ".4";
+        document.querySelector("#freeIcon").style.height = "30px";
+
       }
     }
   } else {
@@ -803,6 +808,8 @@ function freeOnClick() {
       if (searched.free) {} else {
         searched.setVisible(false);
         document.querySelector("#freeIcon").style.opacity = "1";
+        document.querySelector("#freeIcon").style.height = "40px";
+
       }
     }
   }
@@ -814,7 +821,9 @@ function disabledOnClick() {
     for (let searched of markers) {
       if (searched.disabled) {} else {
         searched.setVisible(true);
-        document.querySelector("#disabledIcon").style.opacity = ".2";
+        document.querySelector("#disabledIcon").style.opacity = ".4";
+        document.querySelector("#disabledIcon").style.height = "30px";
+
       }
     }
   } else {
@@ -823,6 +832,8 @@ function disabledOnClick() {
       if (searched.disabled) {} else {
         searched.setVisible(false);
         document.querySelector("#disabledIcon").style.opacity = "1";
+        document.querySelector("#disabledIcon").style.height = "40px";
+
       }
     }
   }
