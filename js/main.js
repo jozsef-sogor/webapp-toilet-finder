@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 */
-
+var selectedAvgRating;
+var selectedNumRatings;
 var selectedPosition;
 var pos;
 var distance;
@@ -387,6 +388,7 @@ function initMap() {
   directionsRenderer.setOptions({
     suppressMarkers: true
   });
+
   infoWindow = new google.maps.InfoWindow;
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
@@ -475,6 +477,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 
+
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -542,6 +545,7 @@ let markers = [];
 locationRef.onSnapshot(function(snapshotData) {
   let locations = snapshotData.docs;
   appendLocations(locations);
+  console.log(locations);
 });
 
 tipsRef.onSnapshot(function(snapshotData) {
@@ -582,6 +586,7 @@ function appendLocations(locations) {
     let free = location.data().free;
     let address = location.data().address;
 
+
     let myLatLng = {
       lat: latitude,
       lng: longtitude
@@ -596,7 +601,8 @@ function appendLocations(locations) {
       icon: iconBase,
       baby: baby,
       disabled: disabled,
-      free: free
+      free: free,
+
     });
 
     markers.push(newMarker);
@@ -609,7 +615,6 @@ function appendLocations(locations) {
       selectedDisabled = this.disabled;
       selectedFree = this.free;
 
-
       console.log(selectedAddress);
 
       let htmlTemplate = `
@@ -621,6 +626,7 @@ function appendLocations(locations) {
           <li id="disabled"><img src="../img/disabled.svg" alt="disabled"></li>
           <li id="free"><img src="../img/free.svg" alt="free"></li>
           </ul>
+
 
           <button id="up" class="modal-close waves-effect waves-light btn" onclick="calculateAndDisplayRoute(directionsService,directionsRenderer,pos,selectedPosition)">Navigate</button>
           </div>
@@ -649,6 +655,10 @@ function appendLocations(locations) {
       }
 
       console.log(selectedPosition);
+
+
+
+
     });
   };
 
@@ -669,6 +679,7 @@ function closeFilterModal() {
 
 
 console.log(markers);
+
 
 
 //filtering
