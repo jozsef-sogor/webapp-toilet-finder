@@ -388,7 +388,7 @@ function initMap() {
     suppressMarkers: true
   });
   infoWindow = new google.maps.InfoWindow;
-    
+
     (function() {
   'use strict';
 
@@ -412,7 +412,7 @@ function initMap() {
     var self = this;
 
     options = options || {};
-    options.icon = options.icon || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAQlBMVEVMaXFCiv9Civ9Civ9Civ9Civ9Civ9Civ9Civ+Kt/9+r/9Pkv90qf9hnf9Civ9wpv9Ee/+Jtf9Gjf9/sP9Kj/9KXf+JdfukAAAACXRSTlMAGCD7088IcsuTBctUAAAAYUlEQVR4XlWOWQrAIBBDx302d73/VSu0UMxfQsgLAMSEzmGKcGRCkZylBHPyMJQmk44QIRWdVCuxlgQoRNLaoi4ILs/a9m6VszuGf4PSaX21eyD6oZ256/AHa/0L9RauOw+4XAWqGLX26QAAAABJRU5ErkJggg=='
+    options.icon = options.icon || '../img/location.svg'
     options.on = options.on || {};
     options.on.geolocationError = options.on.geolocationError || function(error) {};
     options.on.firstGeolocationUpdate = options.on.firestgeolocationUpdate || function(newLocation) {};
@@ -474,11 +474,7 @@ new BlueDot(map);
       };
 
 
-      //Puts a pop-up for testing
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('It was Ignas...');
-      infoWindow.open(map);
-      map.setCenter(pos);
+
 
       //geocoding
 
