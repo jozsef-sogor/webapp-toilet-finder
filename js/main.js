@@ -166,6 +166,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
       } else {
         window.alert('Directions request failed due to ' + status);
       }
+      directionsRenderer.setMap(map);
     });
 }
 
@@ -759,6 +760,4 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.height = "235px";
 });
 
-function clearRoute(){
-    
-}
+
