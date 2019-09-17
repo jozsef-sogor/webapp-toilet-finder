@@ -111,7 +111,7 @@ nav {
   padding: 1.55em;
 }
 
-#filters img {
+#disabledIcon, #babyIcon, #freeIcon {
   opacity: .2;
   transition: .4s
 }
@@ -125,6 +125,7 @@ opacity: .4;
 .freeImg{
   opacity: .4;
 }
+
 
 .filterModal{
   display: grid;
