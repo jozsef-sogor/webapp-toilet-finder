@@ -94,7 +94,7 @@ nav {
   width: 50px;
   height: 50px;
   right: 5px;
-  bottom: 30vh;
+  bottom: 50vh;
 }
 
 /* --------- Filters Styling --------- */
@@ -128,16 +128,15 @@ opacity: .4;
 
 .filterModal{
   display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-}
+grid-template-columns: 1fr 2fr;
+grid-template-rows: 1fr 0fr;
+grid-column-gap: 16px;
+grid-row-gap: 23px;}
 
 .filterModal ul {
   display: flex;
   justify-content: end;
-  margin-top: 19%;
+  margin: auto;
 }
 
 .filterModal ul li {
@@ -216,12 +215,16 @@ a {
 
 
 #up {
-  margin-top: 20%;
+  margin-right: auto;
+    margin-left: auto;
 }
 
 #navP strong {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+}
+#navP {
+  margin: auto;
 }
 
 /* --------- add toilet input field styling --------- */
