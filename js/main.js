@@ -761,3 +761,7 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.visibility = "visible";
   document.getElementById("tip5").style.height = "235px";
 });
+
+if (window.innerWidth > 480){
+    document.getElementById("body").innerHTML="hello, this is a web app, open with your phone :)"
+}
