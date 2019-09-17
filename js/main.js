@@ -3,7 +3,7 @@
 // Materialize auto initilizer
 M.AutoInit();
 
-
+var selectedMarker = [];
 
 // Loader
 /*
@@ -82,12 +82,6 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
-      //Puts a pop-up for testing
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Gotcha...');
-      infoWindow.open(map);
-      map.setCenter(pos);
 
 
       //centers the map to the user location
@@ -681,6 +675,14 @@ function appendLocations(locations) {
       selectedDisabled = this.disabled;
       selectedFree = this.free;
 
+      var iconBase1 = '../img/test.png';
+
+      this.setIcon(iconBase1);
+      selectedMarker.push(markers);
+
+
+
+
       console.log(selectedAddress);
 
       let htmlTemplate = `
@@ -740,6 +742,16 @@ function closeFilterModal() {
          <img id="freeIcon" src="img/free.svg" alt="free" onclick="freeOnClick()">
          `;
     directionsRenderer.setMap(null);
+
+    //Loopimg through all the pins and
+    //changing all of them back to the default icon
+      for(let changedPin of markers){
+        var iconBase = "../img/pin.png";
+
+        changedPin.setIcon(iconBase);
+      }
+
+
 
 };
 
