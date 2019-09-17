@@ -166,6 +166,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
       } else {
         window.alert('Directions request failed due to ' + status);
       }
+      directionsRenderer.setMap(map);
     });
 }
 
@@ -611,7 +612,7 @@ function appendLocations(locations) {
 
       let htmlTemplate = `
       <div class="filterModal">
-      <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
+      <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal(),clearRoute()"><i class="material-icons">close</i></a>
           <p id = "navP"> <strong>${selectedAddress}</strong></p>
           <ul>
           <li id="baby"><img src="../img/baby.svg" alt="baby"></li>
@@ -660,6 +661,8 @@ function closeFilterModal() {
          <img id="babyIcon" src="img/baby.svg" alt="baby" onclick="babyOnClick()">
          <img id="freeIcon" src="img/free.svg" alt="free" onclick="freeOnClick()">
          `;
+    directionsRenderer.setMap(null);
+
 };
 
 
@@ -756,3 +759,5 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.visibility = "visible";
   document.getElementById("tip5").style.height = "235px";
 });
+
+
