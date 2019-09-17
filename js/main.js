@@ -390,6 +390,76 @@ function initMap() {
   });
 
   infoWindow = new google.maps.InfoWindow;
+
+    (function() {
+  'use strict';
+
+  var geolocation_options = {
+    enableHighAccuracy: false,
+    timeout: 8000,
+    maximumAge: 3000
+  };
+
+  function LocationError(code, reason) {
+    var self = this;
+    self.code = code;
+    self.reason = reason instanceof Error ? reason : null;
+    self.message = reason instanceof Error ? reason.message : reason;
+    self.stack = (new Error()).stack;
+  }
+  LocationError.prototype = Object.create(Error.prototype);
+  LocationError.prototype.constructor = LocationError;
+
+  window.BlueDot = function(map, options) {
+    var self = this;
+
+    options = options || {};
+    options.icon = options.icon || '../img/location.svg'
+    options.on = options.on || {};
+    options.on.geolocationError = options.on.geolocationError || function(error) {};
+    options.on.firstGeolocationUpdate = options.on.firestgeolocationUpdate || function(newLocation) {};
+    options.on.geolocationUpdate = options.on.geolocationUpdate || function(newLocation) {};
+
+    self.options = options;
+
+    self.marker = null;
+
+    self.updateLocation = function(pos) {
+      var coordinates = pos.coords;
+      var position = {
+        lat: coordinates.latitude,
+        lng: coordinates.longitude,
+      };
+
+      if (self.marker === null) {
+        self.marker = new google.maps.Marker({
+          map: map,
+          position: position,
+          icon: options.icon
+        });
+
+        map.setCenter(position);
+        options.on.firstGeolocationUpdate(pos);
+      }
+      else {
+        self.marker.setPosition(position);
+        options.on.geolocationUpdate(pos);
+      }
+    };
+
+    self.error = function(error) {
+      options.on.geolocationError(new LocationError(error.code, error));
+    };
+
+    if (!navigator.geolocation) {
+      options.on.geolocationError(new LocationError(101, 'Geolocation is not supported on this browser'));
+    }
+    else {
+      navigator.geolocation.watchPosition(self.updateLocation, self.error, geolocation_options);
+    }
+  };
+})();
+new BlueDot(map);
   //loading geoJSON data
   // map.data.loadGeoJson('locations.json');
   // map.data.addGeoJson();
@@ -406,11 +476,7 @@ function initMap() {
       };
 
 
-      //Puts a pop-up for testing
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('It was Ignas...');
-      infoWindow.open(map);
-      map.setCenter(pos);
+
 
       //geocoding
 
@@ -772,3 +838,7 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.visibility = "visible";
   document.getElementById("tip5").style.height = "235px";
 });
+
+if (window.innerWidth > 480){
+    document.getElementById("body").innerHTML="hello, this is a web app, open with your phone :)"
+}
