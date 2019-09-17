@@ -588,7 +588,7 @@ function appendLocations(locations) {
     };
 
     console.log(myLatLng);
-      var iconBase = 'https://toppng.com/public/uploads/preview/blue-map-pin-blue-google-maps-marker-11562932235xpqssxaj3p.png';
+      var iconBase = '../img/pin.png';
     var newMarker = new google.maps.Marker({
       position: myLatLng,
       address: address,
@@ -761,5 +761,3 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.visibility = "visible";
   document.getElementById("tip5").style.height = "235px";
 });
-
-
