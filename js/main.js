@@ -542,7 +542,7 @@ function appendTips(posts) {
 
 
 
-/*
+
 var Safety = [];
 
 function appendTips(posts) {
@@ -555,7 +555,7 @@ function appendTips(posts) {
     Safety.push(post);
   }
 
-  console.log(Safety); */
+  console.log(Safety); };
 
 
 //Jozsef

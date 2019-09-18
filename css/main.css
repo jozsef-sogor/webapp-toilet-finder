@@ -298,7 +298,6 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   font-size: 1rem;
 }
 
-
 /* --------- add toilet button styling --------- */
 /*Kornelia, Jozsef*/
 .btn, .btn-large, .btn-small {
@@ -371,23 +370,19 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   z-index: -30;
   position: fixed;
-  left:0;
+  left: 0;
   top: 0;
 }
 
 .bckg_st {
-  height: 100%;
-  z-index: -30;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
   position: fixed;
-  left:0;
+  left: 0;
   top: 0;
   opacity: 0.7;
 }
-
-
-
-
-
 
 /* --------- toilet paper shape --------- */
 /*Kornelia, Ignas*/
@@ -577,5 +572,9 @@ codepen.io
     height: 7vw;
     bottom: 49vh;
     right: 1vw;
+  }
+
+  .box {
+    max-width: 20vw;
   }
 }
