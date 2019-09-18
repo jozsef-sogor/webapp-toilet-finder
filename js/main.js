@@ -540,7 +540,7 @@ function appendTips(posts) {
 
 }
 
-
+//Jozsef
 // append locations to the DOM
 function appendLocations(locations) {
 
