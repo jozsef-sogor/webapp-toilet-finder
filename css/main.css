@@ -10,7 +10,7 @@
 /* ---------- general styling ---------- */
 html {
   color: var(--text-color-dark);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Montserrat, sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -18,6 +18,7 @@ html {
 }
 
 /* ---------- loader styling ---------- */
+/*Edward*/
 .preloader-background {
   display: flex;
   align-items: center;
@@ -63,6 +64,7 @@ header {
 }
 
 /* -------- Icon nav styling --------- */
+/*Ignas*/
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   display: block;
   font-size: 24px;
@@ -77,6 +79,7 @@ nav {
 }
 
 /* --------- Center me button styling --------- */
+/*Ignas*/
 .centerMe {
   background-color: #fff;
   border: 2px solid #fff;
@@ -95,9 +98,18 @@ nav {
   height: 50px;
   right: 5px;
   bottom: 50vh;
+  transition: .3s;
+}
+
+/*Jozsef*/
+.centerMe:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 60px;
+  height: 60px;
 }
 
 /* --------- Filters Styling --------- */
+/*Edward, Kornelia*/
 #filters {
   bottom: 67px;
   position: fixed;
@@ -118,23 +130,26 @@ nav {
   margin-right: 20px;
 }
 
-.disabledImg{
-opacity: .4;
-}
-.babyImg{
-  opacity: .4;
-}
-.freeImg{
+.disabledImg {
   opacity: .4;
 }
 
+.babyImg {
+  opacity: .4;
+}
 
-.filterModal{
+.freeImg {
+  opacity: .4;
+}
+
+/*Edward, Jozsef*/
+.filterModal {
   display: grid;
-grid-template-columns: 1fr 2fr;
-grid-template-rows: 1fr 0fr;
-grid-column-gap: 16px;
-grid-row-gap: 23px;}
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 0fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 23px;
+}
 
 .filterModal ul {
   display: flex;
@@ -146,9 +161,7 @@ grid-row-gap: 23px;}
   padding: 5px;
 }
 
-
 /* --------- */
-
 form {
   margin-top: 6rem;
 }
@@ -216,22 +229,22 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
-
 #up {
   margin-right: auto;
-    margin-left: auto;
+  margin-left: auto;
 }
 
 #navP strong {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
+
 #navP {
   margin: auto;
 }
 
 /* --------- add toilet input field styling --------- */
-
+/*Ignas*/
 .input-field {
   margin: 1rem;
   padding: 1rem;
@@ -287,6 +300,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
 
 /* --------- add toilet button styling --------- */
+/*Kornelia, Jozsef*/
 .btn, .btn-large, .btn-small {
   background: linear-gradient(90deg, rgba(61, 0, 203, 1) 38%, rgba(0, 134, 255, 1) 79%, rgba(0, 159, 255, 1) 100%);
 }
@@ -296,7 +310,6 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   padding: 0px;
 }
 
-/* are we using it????? ?????????????????????????????????????????? <----- DELETE */
 #waves-effect {
   margin-top: 20vh;
 }
@@ -349,6 +362,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* --------- safety tips background --------- */
+/*Kornelia*/
 #safetyTips {
   overflow: auto;
 }
@@ -376,6 +390,7 @@ body::-webkit-scrollbar-thumb {
 
 
 /* --------- toilet paper shape --------- */
+/*Kornelia, Ignas*/
 .holder {
   margin-left: 20px;
   z-index=-10;
@@ -440,15 +455,6 @@ h4 {
   letter-spacing: 2px;
 }
 
-/* --------- if we want to put the logo on the safety tips page ---------
-.logost {
-  position: absolute;
-  z-index: 10;
-  top: 10px;
-  left: 30px;
-  width: 30%;
-} */
-
 .box {
   width: 74%;
   height: 235px;
@@ -502,6 +508,7 @@ codepen.io
 }
 
 /* --------- taping icon animation --------- */
+/*Kornelia, Ignas */
 .tap {
   position: relative;
   margin-left: -5px;
@@ -530,9 +537,6 @@ codepen.io
 }
 
 /* -------------------- */
-
-
-
 /* ---------- page styling ---------- */
 .page {
   display: none;
@@ -552,5 +556,24 @@ codepen.io
 
   to {
     opacity: 1
+  }
+}
+
+/*Kornelia, Ignas, Jozsef*/
+@media only screen and (min-width: 1024px) {
+  .tabbar, #filters {
+    max-width: 60vw;
+    left: 20vw;
+  }
+
+  .centerMe {
+    height: 7vw;
+    width: 7vw;
+  }
+
+  .centerMe:hover {
+    width: 8vw;
+    height: 8vw;
+    bottom: 49vh;
   }
 }
