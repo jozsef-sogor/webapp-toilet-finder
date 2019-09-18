@@ -116,7 +116,7 @@ nav {
   width: 100% !important;
   height: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 15px 15px 0 0;
   background-color: #fff;
   z-index: 1;
@@ -125,7 +125,9 @@ nav {
 
 #disabledIcon, #babyIcon, #freeIcon {
   opacity: .4;
-  transition: .4s
+  transition: .4s;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .disabledImg {
@@ -296,6 +298,7 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   font-size: 1rem;
 }
 
+
 /* --------- add toilet button styling --------- */
 /*Kornelia, Jozsef*/
 .btn, .btn-large, .btn-small {
@@ -362,15 +365,36 @@ body::-webkit-scrollbar-thumb {
 /*Kornelia*/
 #safetyTips {
   overflow: auto;
-  background-image: linear-gradient(to top, rgba(0, 0, 255, 0.1) 0%, rgba(61, 0, 203, 0.1) 35%, rgba(0, 0, 255, 0) 100%);
 }
+
+.bckg_st {
+  height: 100%;
+  z-index: -30;
+  position: fixed;
+  left:0;
+  top: 0;
+}
+
+.bckg_st {
+  height: 100%;
+  z-index: -30;
+  position: fixed;
+  left:0;
+  top: 0;
+  opacity: 0.7;
+}
+
+
+
+
+
 
 /* --------- toilet paper shape --------- */
 /*Kornelia, Ignas*/
 .holder {
-  margin-left: 25px;
+  margin-left: 20px;
   z-index=-10;
-  margin-top: 15px;
+  margin-top: 11px;
 }
 
 .top {
@@ -380,7 +404,7 @@ body::-webkit-scrollbar-thumb {
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-  margin-left: 16%;
+  margin-left: 14%;
   position: absolute;
   top: 160px;
   background-color: #ffffff;
@@ -435,7 +459,7 @@ h4 {
   width: 74%;
   height: 235px;
   background: #fff;
-  margin-left: 16%;
+  margin-left: 14%;
   position: absolute;
   top: 5px;
   position: absolute;
