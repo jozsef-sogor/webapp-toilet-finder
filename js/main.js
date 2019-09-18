@@ -5,17 +5,7 @@ M.AutoInit();
 
 var selectedMarker = [];
 
-// Loader
-/*
-document.addEventListener("DOMContentLoaded", function(){
-	$('.preloader-background').delay(1700).fadeOut('slow');
 
-	$('.preloader-wrapper')
-		.delay(1700)
-		.fadeOut();
-});
-
-*/
 var selectedAvgRating;
 var selectedNumRatings;
 var selectedPosition;
@@ -24,55 +14,24 @@ var distance;
 var selectedAddress;
 var selectedBaby, selectedDisabled, selectedFree;
 
-
+// Loader Edward
 $(window).load(function() { //Do the code in the {}s when the window has loaded
   $(".preloader-background").fadeOut("fast");
   $(".preloader-wrapper").fadeOut("fast"); //Fade out the #loader div
 });
 
 
-
-
-// To open a modal using a trigger
-// document.addEventListener('DOMContentLoaded', function() {
-//   var elems = document.querySelectorAll('.modal');
-//   var instances = M.Modal.init(elems, options);
-// });
-
-
-//  Initializing the filter selection on the ADD Toilet Page
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   var elems = document.querySelectorAll('select');
-//   var instances = M.FormSelect.init(elems, options);
-// });
-
-
-
-
 //Acessing user location
 var map;
 
-//var infoWindow;
 function initMap() {
+  //Jozsef
 
-  directionsService = new google.maps.DirectionsService();
-  directionsRenderer = new google.maps.DirectionsRenderer();
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: -34.397,
-      lng: 150.644
-    },
-    zoom: 15,
-    disableDefaultUI: true,
-    styles: mapStyling
-  });
-  directionsRenderer.setMap(map);
 
   infoWindow = new google.maps.InfoWindow;
 
 
-
+  //Jozsef
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
   //if yes it puts the coordinates into (global) variables
@@ -107,6 +66,7 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
 }
 
 // Directions function
+//Ignas, Edward
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pinLocation) {
 
@@ -120,6 +80,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
 
         directionsRenderer.setDirections(response);
         distance = response.routes[0].legs[0].distance.text;
+        //Information filterModal
         let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal()"><i class="material-icons">close</i></a>
@@ -134,10 +95,9 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
           </div>
       `;
 
-
-
+        //Hides filter icons
+        //Ignas
         document.querySelector("#filters").innerHTML = htmlTemplate;
-        //  document.querySelector("body").addClass(".modalOpen")
         if (selectedBaby) {
           document.querySelector("#baby").style.display = "block";
         } else {
@@ -166,7 +126,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, pos, pi
 }
 
 
-
+//Kornelia, Jozsef
 var mapStyling = [{
     "elementType": "geometry",
     "stylers": [{
@@ -291,7 +251,7 @@ var mapStyling = [{
   }
 ]
 
-
+//All team members
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB04QXJ9nEQdJa9AWTqF_GmR8SOr_KvF7c",
@@ -308,7 +268,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const bathroomRef = db.collection("locations");
 
-
+//Ignas
 function createBathroom() {
   let addressInput = document.querySelector('#address');
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -333,30 +293,7 @@ function createBathroom() {
     bathroomRef.add(newBathroom);
   })
 
-
-
-
-
-
-
-
-
-  // let addNewMarker = new google.maps.LatLng (pos);
-  // function addMarker (location){
-  //   let marker = new google.maps.Marker({
-  //     position: location,
-  //     map: map,
-  //   });
-  // }
-
 }
-
-//geocoding, turning coordinates to an address
-
-
-
-
-
 
 //Acessing user location
 var map, infoWindow;
@@ -365,19 +302,21 @@ var directionsService;
 var directionsRenderer;
 
 function initMap() {
+  //Ignas, Jozsef
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer();
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
-      lat: -34.397,
-      lng: 150.644
+      lat: 56.1629,
+      lng: 10.2039
     },
     zoom: 15,
     disableDefaultUI: true,
     styles: mapStyling
 
   });
+  //Ignas
   directionsRenderer.setMap(map);
   directionsRenderer.setOptions({
     suppressMarkers: true
@@ -385,83 +324,81 @@ function initMap() {
 
   infoWindow = new google.maps.InfoWindow;
 
-    (function() {
-  'use strict';
+  //Blue ring is put to user location
+  //Ignas
+  (function() {
+    'use strict';
 
-  var geolocation_options = {
-    enableHighAccuracy: false,
-    timeout: 8000,
-    maximumAge: 3000
-  };
+    var geolocation_options = {
+      enableHighAccuracy: false,
+      timeout: 8000,
+      maximumAge: 3000
+    };
 
-  function LocationError(code, reason) {
-    var self = this;
-    self.code = code;
-    self.reason = reason instanceof Error ? reason : null;
-    self.message = reason instanceof Error ? reason.message : reason;
-    self.stack = (new Error()).stack;
-  }
-  LocationError.prototype = Object.create(Error.prototype);
-  LocationError.prototype.constructor = LocationError;
+    function LocationError(code, reason) {
+      var self = this;
+      self.code = code;
+      self.reason = reason instanceof Error ? reason : null;
+      self.message = reason instanceof Error ? reason.message : reason;
+      self.stack = (new Error()).stack;
+    }
+    LocationError.prototype = Object.create(Error.prototype);
+    LocationError.prototype.constructor = LocationError;
 
-  window.BlueDot = function(map, options) {
-    var self = this;
+    window.BlueDot = function(map, options) {
+      var self = this;
 
-    options = options || {};
-    options.icon = options.icon || '../img/location.svg'
-    options.on = options.on || {};
-    options.on.geolocationError = options.on.geolocationError || function(error) {};
-    options.on.firstGeolocationUpdate = options.on.firestgeolocationUpdate || function(newLocation) {};
-    options.on.geolocationUpdate = options.on.geolocationUpdate || function(newLocation) {};
+      options = options || {};
+      options.icon = options.icon || '../img/location.svg'
+      options.on = options.on || {};
+      options.on.geolocationError = options.on.geolocationError || function(error) {};
+      options.on.firstGeolocationUpdate = options.on.firestgeolocationUpdate || function(newLocation) {};
+      options.on.geolocationUpdate = options.on.geolocationUpdate || function(newLocation) {};
 
-    self.options = options;
+      self.options = options;
 
-    self.marker = null;
+      self.marker = null;
 
-    self.updateLocation = function(pos) {
-      var coordinates = pos.coords;
-      var position = {
-        lat: coordinates.latitude,
-        lng: coordinates.longitude,
+      self.updateLocation = function(pos) {
+        var coordinates = pos.coords;
+        var position = {
+          lat: coordinates.latitude,
+          lng: coordinates.longitude,
+        };
+
+        if (self.marker === null) {
+          self.marker = new google.maps.Marker({
+            map: map,
+            position: position,
+            icon: options.icon
+          });
+
+          map.setCenter(position);
+          options.on.firstGeolocationUpdate(pos);
+        } else {
+          self.marker.setPosition(position);
+          options.on.geolocationUpdate(pos);
+        }
       };
 
-      if (self.marker === null) {
-        self.marker = new google.maps.Marker({
-          map: map,
-          position: position,
-          icon: options.icon
-        });
+      self.error = function(error) {
+        options.on.geolocationError(new LocationError(error.code, error));
+      };
 
-        map.setCenter(position);
-        options.on.firstGeolocationUpdate(pos);
-      }
-      else {
-        self.marker.setPosition(position);
-        options.on.geolocationUpdate(pos);
+      if (!navigator.geolocation) {
+        options.on.geolocationError(new LocationError(101, 'Geolocation is not supported on this browser'));
+      } else {
+        navigator.geolocation.watchPosition(self.updateLocation, self.error, geolocation_options);
       }
     };
+  })();
+  new BlueDot(map);
 
-    self.error = function(error) {
-      options.on.geolocationError(new LocationError(error.code, error));
-    };
-
-    if (!navigator.geolocation) {
-      options.on.geolocationError(new LocationError(101, 'Geolocation is not supported on this browser'));
-    }
-    else {
-      navigator.geolocation.watchPosition(self.updateLocation, self.error, geolocation_options);
-    }
-  };
-})();
-new BlueDot(map);
-  //loading geoJSON data
-  // map.data.loadGeoJson('locations.json');
-  // map.data.addGeoJson();
-  // map.data.setMap(map);
 
   // Try HTML5 geolocation.
   //Checks if the browser has access tot the user location
   //if yes it puts the coordinates into (global) variables
+  //Ignas
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       pos = {
@@ -469,9 +406,7 @@ new BlueDot(map);
         lng: position.coords.longitude
       };
 
-
-
-
+      //Ignas, Edward
       //geocoding
 
       fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.lat},${pos.lng}&key=AIzaSyA3bB16-ieel0BRSzYUmRwqS7gYzXkFkJk`)
@@ -485,18 +420,8 @@ new BlueDot(map);
 
         })
 
-      //  Add New Marker
-
-
-
-
-
-
-
-
-
+      //Ignas
       //centers the map to the user location
-      map.setCenter(pos);
       //creates a div with a class centerMe and appends it too the map section
 
       let img = document.createElement("img");
@@ -504,12 +429,7 @@ new BlueDot(map);
       img.src = 'img/locate.svg';
       document.querySelector('#map').appendChild(img);
 
-
-      // Adds a screen that confirms the user that he/she added a new toilet
-
-
-
-
+      //Ignas
       //Adds an event listener to the div that centers the map to the users location
       document.querySelector(".centerMe").addEventListener('click', function() {
         map.setCenter(pos);
@@ -524,7 +444,7 @@ new BlueDot(map);
 
 }
 
-
+//Ignas
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
@@ -537,7 +457,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 
-
+//All team members
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -584,15 +504,6 @@ setDefaultPage();
 
 console.log(pos);
 
-//Center button
-
-
-
-
-
-
-
-
 
 // Your web app's Firebase configuration
 
@@ -629,6 +540,7 @@ function appendTips(posts) {
 
 }
 
+//Jozsef
 // append locations to the DOM
 function appendLocations(locations) {
 
@@ -653,7 +565,7 @@ function appendLocations(locations) {
     };
 
     console.log(myLatLng);
-      var iconBase = '../img/pin.png';
+    var iconBase = '../img/pin.png';
     var newMarker = new google.maps.Marker({
       position: myLatLng,
       address: address,
@@ -667,7 +579,9 @@ function appendLocations(locations) {
 
     markers.push(newMarker);
     console.log(markers);
+
     //Listens if a pin is clicked
+    //Edward, Jozsef
     newMarker.addListener('click', function() {
       selectedPosition = this.position;
       selectedAddress = this.address.toString();
@@ -676,17 +590,18 @@ function appendLocations(locations) {
       selectedFree = this.free;
       //Looping through all the pins and
       //changing all of them back to the default icon
-        for(let changedPin of markers){
-          var iconBase = "../img/pin.png";
+      for (let changedPin of markers) {
+        var iconBase = "../img/pin.png";
 
-          changedPin.setIcon(iconBase);
-        };
+        changedPin.setIcon(iconBase);
+      };
 
       var iconBase1 = '../img/test.png';
       this.setIcon(iconBase1);
 
       selectedMarker.push(markers);
 
+      //Edward, Jozsef
       let htmlTemplate = `
       <div class="filterModal">
       <a class="btn-floating btn-small waves-effect waves-light blue close" onclick="closeFilterModal(),clearRoute()"><i class="material-icons">close</i></a>
@@ -703,9 +618,9 @@ function appendLocations(locations) {
       `;
 
 
-
+      //Displays the filter icons on the information filterModal
+      //Kornelia, Jozsef
       document.querySelector("#filters").innerHTML = htmlTemplate;
-      //  document.querySelector("body").addClass(".modalOpen")
       if (selectedBaby) {
         document.querySelector("#baby").style.display = "block";
       } else {
@@ -736,34 +651,30 @@ function appendLocations(locations) {
 
 
 
-
+//Edward, Jozsef
 function closeFilterModal() {
   document.querySelector("#filters").innerHTML = `
          <img id="disabledIcon" src="img/disabled.svg" alt="disabled" onclick="disabledOnClick()">
          <img id="babyIcon" src="img/baby.svg" alt="baby" onclick="babyOnClick()">
          <img id="freeIcon" src="img/free.svg" alt="free" onclick="freeOnClick()">
          `;
-    directionsRenderer.setMap(null);
 
-    //Looping through all the pins and
-    //changing all of them back to the default icon
-      for(let changedPin of markers){
-        var iconBase = "../img/pin.png";
+  //Clears path from map
+  //Ignas
+  directionsRenderer.setMap(null);
 
-        changedPin.setIcon(iconBase);
-      }
+  //Looping through all the pins and
+  //changing all of them back to the default icon
+  //Jozsef
+  for (let changedPin of markers) {
+    var iconBase = "../img/pin.png";
 
-
-
+    changedPin.setIcon(iconBase);
+  }
 };
 
-
-console.log(markers);
-
-
-
 //filtering
-
+//Jozsef
 let babyFilter = false;
 let disabledFilter = false;
 let freeFilter = false;
@@ -771,23 +682,23 @@ let freeFilter = false;
 function babyOnClick() {
   if (babyFilter) {
     babyFilter = false;
+    document.querySelector("#babyIcon").style.opacity = ".4";
+    document.querySelector("#babyIcon").style.height = "30px";
+
     for (let searched of markers) {
       if (searched.baby) {} else {
         searched.setVisible(true);
-        document.querySelector("#babyIcon").style.opacity = ".4";
-        document.querySelector("#babyIcon").style.height = "30px";
 
       }
     }
   } else {
     babyFilter = true;
+    document.querySelector("#babyIcon").style.opacity = "1";
+    document.querySelector("#babyIcon").style.height = "40px";
+
     for (let searched of markers) {
       if (searched.baby) {} else {
         searched.setVisible(false);
-        document.querySelector("#babyIcon").style.opacity = "1";
-        document.querySelector("#babyIcon").style.height = "40px";
-
-
       }
     }
   }
@@ -796,21 +707,21 @@ function babyOnClick() {
 function freeOnClick() {
   if (freeFilter) {
     freeFilter = false;
+    document.querySelector("#freeIcon").style.opacity = ".4";
+    document.querySelector("#freeIcon").style.height = "30px";
     for (let searched of markers) {
       if (searched.free) {} else {
         searched.setVisible(true);
-        document.querySelector("#freeIcon").style.opacity = ".4";
-        document.querySelector("#freeIcon").style.height = "30px";
 
       }
     }
   } else {
     freeFilter = true;
+    document.querySelector("#freeIcon").style.opacity = "1";
+    document.querySelector("#freeIcon").style.height = "40px";
     for (let searched of markers) {
       if (searched.free) {} else {
         searched.setVisible(false);
-        document.querySelector("#freeIcon").style.opacity = "1";
-        document.querySelector("#freeIcon").style.height = "40px";
 
       }
     }
@@ -820,28 +731,29 @@ function freeOnClick() {
 function disabledOnClick() {
   if (disabledFilter) {
     disabledFilter = false;
+    document.querySelector("#disabledIcon").style.opacity = ".4";
+    document.querySelector("#disabledIcon").style.height = "30px";
+
     for (let searched of markers) {
       if (searched.disabled) {} else {
         searched.setVisible(true);
-        document.querySelector("#disabledIcon").style.opacity = ".4";
-        document.querySelector("#disabledIcon").style.height = "30px";
 
       }
     }
   } else {
     disabledFilter = true;
+    document.querySelector("#disabledIcon").style.opacity = "1";
+    document.querySelector("#disabledIcon").style.height = "40px";
+
     for (let searched of markers) {
       if (searched.disabled) {} else {
         searched.setVisible(false);
-        document.querySelector("#disabledIcon").style.opacity = "1";
-        document.querySelector("#disabledIcon").style.height = "40px";
-
       }
     }
   }
 };
 
-
+//Kornelia, Ignas
 document.getElementById("tip1").addEventListener('click', function() {
 
   document.getElementById("tip2").style.visibility = "visible";
@@ -864,6 +776,7 @@ document.getElementById("tip4").addEventListener('click', function() {
   document.getElementById("tip5").style.height = "235px";
 });
 
-if (window.innerWidth > 480){
-    document.getElementById("body").innerHTML="hello, this is a web app, open with your phone :)"
-}
+//Ignas
+// if (window.innerWidth > 480) {
+//   document.getElementById("body").innerHTML = "hello, this is a web app, open with your phone :)"
+//}
