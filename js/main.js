@@ -629,6 +629,21 @@ function appendTips(posts) {
 
 }
 
+/*
+var Safety = [];
+
+function appendTips(posts) {
+  let htmlTemplate = "";
+  for (let post of posts) {
+    console.log(post);
+    htmlTemplate += `
+      <li>${post.data().post}</li>
+    `;
+    Safety.push(post);
+  }
+
+  console.log(Safety); */
+
 // append locations to the DOM
 function appendLocations(locations) {
 

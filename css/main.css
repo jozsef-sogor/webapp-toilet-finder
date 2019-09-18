@@ -389,7 +389,7 @@ body::-webkit-scrollbar-thumb {
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-  margin-left: 14%;
+  margin-left: 15%;
   position: absolute;
   top: 160px;
   background-color: #ffffff;
@@ -453,7 +453,7 @@ h4 {
   width: 74%;
   height: 235px;
   background: #fff;
-  margin-left: 14%;
+  margin-left: 15%;
   position: absolute;
   top: 5px;
   position: absolute;
