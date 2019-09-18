@@ -541,6 +541,7 @@ function appendTips(posts) {
 }
 
 
+
 /*
 var Safety = [];
 
@@ -558,6 +559,7 @@ function appendTips(posts) {
 
 
 //Jozsef
+
 
 // append locations to the DOM
 function appendLocations(locations) {
@@ -614,7 +616,7 @@ function appendLocations(locations) {
         changedPin.setIcon(iconBase);
       };
 
-      var iconBase1 = '../img/test.png';
+      var iconBase1 = '../img/selectedPin.png';
       this.setIcon(iconBase1);
 
       selectedMarker.push(markers);

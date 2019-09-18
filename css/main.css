@@ -567,13 +567,15 @@ codepen.io
   }
 
   .centerMe {
-    height: 7vw;
-    width: 7vw;
+    height: 6vw;
+    width: 6vw;
+    right: 1.5vw;
   }
 
   .centerMe:hover {
-    width: 8vw;
-    height: 8vw;
+    width: 7vw;
+    height: 7vw;
     bottom: 49vh;
+    right: 1vw;
   }
 }
