@@ -314,7 +314,6 @@ function initMap() {
     zoom: 15,
     disableDefaultUI: true,
     styles: mapStyling
-
   });
   //Ignas
   directionsRenderer.setMap(map);
@@ -559,8 +558,6 @@ function appendTips(posts) {
 
 
 //Jozsef
-
-
 // append locations to the DOM
 function appendLocations(locations) {
 
